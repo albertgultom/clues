@@ -78,6 +78,7 @@
         @endif
 
         <div class="content">
+            <img src="{{ asset('img/clues-logo.png') }}" alt="">
             <div class="title m-b-md">
                 CLUES
             </div>

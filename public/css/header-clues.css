@@ -1,0 +1,82 @@
+header{
+    height: 60px;
+    border-bottom: 1px solid #F2F2F2;
+    margin-bottom: 20px;
+    padding: 0 200px;
+}
+header .logo img{
+    width: 50px;
+    margin: 10px;
+}
+header .clues{
+    position: relative;
+    top: 11px;
+    font-weight: 700;
+    font-size: 25px;
+    display: inline-block;
+    color: #444444;
+}
+header .clues:hover{
+    text-decoration: none;
+}
+header .avatar{
+    position: relative;
+    top: -10px;
+    height: 37px;
+    width: 37px;
+    /*overflow: hidden;*/
+}
+header .action{
+    position: relative;
+    top: -7px;
+}
+header .menu .navq {
+    margin-top: 20px;
+}
+header .menu .navq li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 5px;
+}
+header .menu .navq li a{
+    color: #444;
+}
+header .menu .navq li a:hover{
+    color: #c46260;
+    text-decoration: none;
+}
+
+header .dropdown-field{
+    width: 162px;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    z-index: 99;
+    /*right: 0;*/
+}
+header .dropdown-field.show{
+    display: block;
+}
+
+.dropdown-list{
+    padding: 10px 0px;
+}
+
+header .dropdown-list li{
+    display: list-item;
+    margin: 0;
+}
+
+header .dropdown-list li a{
+    padding: 5px 16px;
+    display: block;
+}
+
+#toggle.active{
+    color: #F4645F;
+}

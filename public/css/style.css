@@ -1,0 +1,107 @@
+/*core css*/
+@font-face {
+	font-family: Oxygen;
+	src: url('../fonts/Oxygen/Oxygen-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Oxygen-Bold;
+	src: url('../fonts/Oxygen/Oxygen-Bold.ttf') format('truetype');
+}
+body{
+	background-color: #fff;
+	color: #8d8d8d;
+	font-family: 'Oxygen', sans-serif;
+	word-spacing: 0.5px;
+	letter-spacing: 0.5px;
+}
+h1, h2, h3, h4, h5{
+	color: #444444;
+	margin: 5px 0;
+}
+p{
+	color: #8d8d8d;
+}
+a{
+	color: #0E5C9A;
+}
+a:hover{
+	text-decoration: none;
+}
+.divider{
+	margin: 10px 0;
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+.center{
+	text-align: center;
+}
+.circle{
+	border-radius: 50%;
+	/*border: 2px solid #dbdcdb;*/
+	/*box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);*/
+}
+img.responsive-img{
+	max-width: 100%;
+	height: auto;
+}
+
+.red-clues{
+	border-color: #dd7a78;
+	color: #dd7a78;
+}
+.blue-clues{
+	border-color: #0E5C9A;
+	color: #0E5C9A;
+}
+
+/*core css*/
+
+.btn,
+.btn:hover{
+	border-radius: 25px;
+}
+.btn.blue, a.blue,
+.btn.blue:hover, a.blue:hover{
+	border-color: #0E5C9A;
+	color: #0E5C9A;
+}
+.btn.red, a.red,
+.btn.red:hover, a.red:hover{
+	border-color: #dd7a78;
+	color: #dd7a78;
+}
+.btn:focus{
+	outline: none;
+	background-color: transparent;
+}
+
+/*custom css tabs*/
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	color: #dd7a78;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
