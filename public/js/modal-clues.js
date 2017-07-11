@@ -2,23 +2,16 @@ $(document).ready(function(){
     $('.mymodal').click(function(e){
         e.preventDefault();
         var target = $(this).data('target');
-        var header = $(this).data('header');
         var body = $(this).data('body');
-        $('#'+target).css({
-            'display': 'block',
-            'z-index': '99'
-        });;
-        $('.modal-header-clues').html('<h2 class="center">'+header+'</h2>');
-        $.ajax({
-            url: body,
-            type: 'GET',
-            success: function(data){
-                $('.modal-body-clues').html(data);
-            }
-        })
+        var url_yes = $(this).attr('url-yes');
+        var run_function = $(this).data('function');
+        var header = $(this).data('header');
+        show_modal(target, body, header, url_yes, run_function);
     })
-    $('span.close').click(function() {
-        $('.modal-clues').css({
+    $('span.close, .modal-clues-ask .option .red, .modal-clues-ask .option .blue').click(function(e) {
+        // e.preventDefault();
+        $('body').css('overflow', 'scroll');
+        $('.modal-clues, .modal-clues-ask').css({
             'display': 'none',
             'z-index': '-999'
         });
@@ -26,8 +19,9 @@ $(document).ready(function(){
     });
     $(window).click(function(event) {
             // alert(event.target.className);
-            if (event.target.className == 'modal-clues') {
-                $('.modal-clues').css({
+            if (event.target.className == 'modal-clues' || event.target.className == 'modal-clues-ask') {
+                $('body').css('overflow', 'scroll');
+                $('.modal-clues, .modal-clues-ask').css({
                     'display': 'none',
                     'z-index': '-999'
                 });
@@ -35,3 +29,43 @@ $(document).ready(function(){
             }
         });
 })
+
+function show_modal(target, body, header, url_yes, run_function){
+    // var target = $(this).data('target');
+    // var body = $(this).data('body');
+    $('body').css('overflow', 'hidden');
+    $('#'+target).css({
+        'display': 'block',
+        'z-index': '99'
+    });;
+    if (target == 'modal-clues') {
+        // var header = $(this).data('header');
+        $.ajax({
+            url: body,
+            type: 'GET',
+            success: function(data){
+                $('.modal-header-clues').html('<h2 class="center">'+header+'</h2>');
+                $('.modal-body-clues').html(data);
+            },
+            beforeSend: function(){
+                $('.bar-container').css('visibility', 'visible');
+            },
+            complete: function(){
+                $('.bar-container').css('visibility', 'hidden');
+            }
+        })
+    }else{
+        // var url_yes = $(this).attr('url-yes');
+        // var run_function = $(this).data('function');
+        $('.modal-body-clues').html('<h4><strong>'+body+'</strong></h4>');
+        if (url_yes != '') {
+            $('.modal-clues-ask .option a.blue').attr('href', yes);
+        }else{
+            $('.modal-clues-ask .option a.blue').attr('onclick', run_function);
+        }
+    }
+}
+
+
+
+

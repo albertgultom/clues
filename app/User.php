@@ -22,6 +22,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Like');
     }
 
+    public function plays()
+    {
+        return $this->hasMany('App\Play');
+    }
+
     public function comments()
     {
         return $this->hasMany('App\Comment');
@@ -29,12 +34,20 @@ class User extends Authenticatable
 
     public function followers()
     {
-        return $this->belongsToMany('App\Follow', 'follow_user', 'user_id', 'follower_id');
+        return $this->hasMany('App\Following', 'following_id');
     }
-    
-    public function following()
+
+    public function followings()
     {
-        return $this->belongsToMany('App\Follow', 'follow_user', 'user_id', 'following_id');
+        return $this->hasMany('App\Following');
+    }
+
+    public function notifications(){
+        return $this->hasMany('App\Notification');
+    }
+
+    public function notifBy(){
+        return $this->hasMany('App\Notification', 'notif_by');
     }
 
 

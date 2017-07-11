@@ -35,18 +35,34 @@
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('js/radialIndicator.min.js') }}"></script>
     <script src="{{ asset('js/myjs.js') }}"></script>
     <script src="{{ asset('js/modal-clues.js') }}"></script>
     <script src="{{ asset('js/header-clues.js') }}"></script>
+    <script src="{{ asset('js/pinterest-grid.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/mathjax/MathJax.js?config=TeX-AMS_HTML') }}"></script>
 
 
 </head>
 <body>
+    <div class="bar-container">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
     @include ('elements.header')
+   {{--  @foreach ($notif as $element)
+    {{$element->id}}
+    @endforeach --}}
+    {{-- <h1>{{$id}}</h1> --}}
 
-    <div class="container">
+    <div class="container bodyy">
         @yield('content')
     </div>
+
+    @include ('elements.footer')
+
 
     <!-- The Modal -->
     <div id="modal-clues" class="modal-clues">
@@ -59,41 +75,90 @@
             <div class="modal-body-clues">
             </div>
         </div>
-        <div class="loader"></div>
     </div>
+
+    <div id="modal-clues-ask" class="modal-clues-ask">
+        <!-- Modal content -->
+        <div class="modal-content-clues">
+            <span class="close">&times;</span>
+            <div class="modal-body-clues">
+
+            </div>
+            <div class="option">
+                <a class="btn btn-default blue">
+                    Ya
+                </a>
+                <a class="btn btn-default red">
+                    Tidak
+                </a>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 
 </html>
 {{-- loader css --}}
 <style>
-    .loader {
+    /* linear loading */
+    .bar-container{
+        visibility: hidden;
         position: fixed;
-        top: 30%;
-        right: 0;
-        left: 0;
-        display: none;
-        border: 8px solid #f3f3f3; /* Light grey */
-        border-top: 8px solid #555; 
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        margin: 10px auto;
-        animation: spin 2s linear infinite;
+        top: 0;
+        height: 5px;
+        width: 100%;
+        background-color: #bdbdbd;
     }
 
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    .bar{
+        content: "";
+        display: inline;
+        position: absolute;
+        height: 100%;
+        width: 0;
+        right: 0;
     }
+
+    .bar:nth-child(1) {
+        background-color: #dd7a78;
+        animation: linear_loader 3s linear 1s infinite;
+    }
+
+    .bar:nth-child(2) {
+        background-color: #0E5C9A;
+        animation: linear_loader 3s linear 2s infinite;
+    }
+
+    .bar:nth-child(3) {
+        background-color: #555555;
+        animation: linear_loader 3s linear 3s infinite;
+    }
+
+    @keyframes linear_loader {
+        0% {
+            right: 100%; 
+            width: 10%;
+        }
+        30% {
+            right: 0%; 
+            width: 40%;
+        }
+        50% {
+            right: 0%; 
+            width: 0%;
+        }
+        80% {
+            right: 0%; 
+            width: 0%;
+        }
+        100% {
+            right: 0%; 
+            width: 0%;
+        }
+    }
+    /* end linear loading */
+
 </style>
 {{-- loader js --}}
-<script>
-    $(document).ajaxStart(function(){
-        $(".loader").css("display", "block");
-    });
 
-    $(document).ajaxComplete(function(){
-        $(".loader").css("display", "none");
-    });
-</script>

@@ -7,6 +7,10 @@
 	font-family: Oxygen-Bold;
 	src: url('../fonts/Oxygen/Oxygen-Bold.ttf') format('truetype');
 }
+.container.bodyy{
+	min-height: calc(100vh - 136px);
+	padding-bottom: 20px;
+}
 body{
 	background-color: #fff;
 	color: #8d8d8d;
@@ -52,6 +56,10 @@ img.responsive-img{
 	height: auto;
 }
 
+.hidden{
+	display: none;
+}
+
 .red-clues{
 	border-color: #dd7a78;
 	color: #dd7a78;
@@ -59,6 +67,11 @@ img.responsive-img{
 .blue-clues{
 	border-color: #0E5C9A;
 	color: #0E5C9A;
+}
+
+a span.glyphicon{
+	top: 2px;
+	margin-right: 5px;
 }
 
 /*core css*/
@@ -80,6 +93,10 @@ img.responsive-img{
 .btn:focus{
 	outline: none;
 	background-color: transparent;
+}
+
+.btn .glyphicon{
+	top: 2px;
 }
 
 /*custom css tabs*/

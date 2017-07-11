@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\QuestionSet;
+use App\Like;
+use App\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionSetController extends Controller
@@ -17,13 +19,51 @@ class QuestionSetController extends Controller
 	}
 
 	function store(Request $request){
-		$id = QuestionSet::create([
+		$id = QuestionSet::updateOrCreate(['id' => $request->id],[
 			'name' => $request->name,
 			'level' => $request->level,
 			'study_name' => $request->mapel,
 			'time' => $request->time,
 			'user_id' => Auth::user()->id
 			])->id;
-		return redirect('question/'.$id.'/create');
+		if ($request->id != '') {
+			return redirect('user');
+		}else{
+			return redirect('question/'.$id.'/create');
+		}
+	}
+
+	function posting(Request $request){
+		$posting = QuestionSet::find($request->id)->update([
+			'post' => '1'
+			]);
+	}
+
+	function archive(Request $request){
+		$posting = QuestionSet::find($request->id)->update([
+			'post' => '0'
+			]);
+	}
+
+	function like(Request $request){
+		$cek = Like::where('question_set_id', $request->question_set_id)
+		->where('user_id', Auth::user()->id)->count();
+
+		if ($cek == 1) {
+			Like::where('question_set_id', $request->question_set_id)
+			->where('user_id', Auth::user()->id)->delete();
+			Notification::where('user_id', $request->user_id)->where('notif_by', Auth::user()->id)->where('question_set_id', $request->question_set_id)->delete();
+		}else{
+			Like::create([
+				'question_set_id' => $request->question_set_id,
+				'user_id' => Auth::user()->id
+				]);
+			Notification::create([
+				'user_id' => $request->user_id,
+				'notif_by' => Auth::user()->id,
+				'type' => 'like',
+				'question_set_id' => $request->question_set_id
+				]);
+		}
 	}
 }

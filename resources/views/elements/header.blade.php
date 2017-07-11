@@ -6,12 +6,48 @@
     <div class="menu right">
         <ul class="navq">
             @if (Auth::check())
-            <li class="action" style="margin: 0 38px;">
+            <li class="action" style="margin: 0 10px;">
                 @if (Auth::user()->status == 'guru')
                 <a href="#" class="mymodal" data-target="modal-clues" data-header="Detail Soal" data-body="{{ url('setsoal') }}">Buat Soal</a>
                 @else
                 <a href="{{ url('question') }}">Kerjakan Soal</a>
                 @endif
+            </li>
+            <li>
+                <a href="#" id="toggle" class="action" style="margin: 0 10px;">
+                    @if ($notifcount > 0)
+                    <span class="head-notif" style="position: absolute; height: 10px; width: 10px; background-color: #dd7a78; border-radius: 50%;"></span> 
+                    @endif
+                    <span id="notif" style="margin: 0;" class="glyphicon glyphicon-bell red"></span>
+                </a>
+                <div class="dropdown-field-notif">
+                    <ul class="dropdown-list-notif">
+                        @foreach ($notif as $a)
+                        <li class="list" style="margin: 0;">
+                            <div style="width: 34px; height: 34px; position: absolute; display: inline-block;">
+                                <a href="{{ url('user') }}/{{ $a->notifBy->username}}">
+                                    <img src="{{ asset('images/default_pic.png') }}" class="responsive-img circle" alt="">
+                                </a>
+                            </div>
+                            <div style="display: inline-block; margin-left: 40px;">
+                                @if ($a->type == 'like')
+                                <div>
+                                    <a href="{{ url('user') }}/{{ $a->notifBy->username}}"><strong>{{$a->notifBy->username}}</strong></a> Menyukai soal anda : <a href="{{ url('user') }}">{{ $a->questionset->name}}</a>
+                                </div>
+                                @elseif($a->type == 'follow')
+                                <div>
+                                    <a href="{{ url('user') }}/{{ $a->notifBy->username}}"><strong>{{$a->notifBy->username}}</strong></a> Mengikuti anda.
+                                </div>
+                                @endif
+                                <div class="date-notif">{{$a->created_at->diffForHumans()}}</div>
+                            </div>
+                            @if ($a->read == '1')
+                            <span class="read" data-id="{{$a->id}}" style="position: absolute; height: 10px; right: 7px; top: 18px; width: 10px; cursor: pointer; background-color: #dd7a78; border-radius: 50%;"></span> 
+                            @endif
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
             </li>
             <li class="avatar">
                 <a href="#" id="toggle">
@@ -45,3 +81,34 @@
         </ul>
     </div>
 </header>
+
+<script>
+    $(document).ready(function(){
+        
+        $('.read').click(function(event) {
+            var id = $(this).data('id');
+            var taget = $(this);
+            $.ajax({
+                url: '{{ url('readnotif') }}/'+id,
+                type: 'GET',
+                success: function(result){
+                    $('.read[data-id="'+result+'"]').remove();
+                    var n = $('.read').length;
+                    window.countread = n;
+                    if ($('.read').length == 0) {
+                        $('.head-notif').hide();
+                    }
+                }
+            })
+        });
+    })
+</script>
+
+
+
+
+
+
+
+
+

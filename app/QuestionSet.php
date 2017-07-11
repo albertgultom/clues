@@ -25,4 +25,14 @@ class QuestionSet extends Model
 	{
 		return $this->hasMany('App\Like');
 	}
+	public function plays()
+	{
+		return $this->hasMany('App\Play');
+	}
+	
+	public function notifications()
+	{
+		return $this->hasMany('App\Notification');
+	}
+
 }
