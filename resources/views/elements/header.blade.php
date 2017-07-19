@@ -2,16 +2,23 @@
     <div class="logo left">
         {{-- <img src="{{ asset('img/clues-logo.png') }}" alt="" class="responsive-img"> --}}
         <a href="{{ url('') }}" class="clues">CLUES</a>
+        @if (Auth::check())
+        <div class="search">
+            <form action="{{ url('search') }}" method="GET">
+                <span class="glyphicon glyphicon-search red-clues"></span>
+                <input placeholder="Cari Soal" name="keyword" type="text">
+            </form>
+        </div>
+        @endif
     </div>
     <div class="menu right">
         <ul class="navq">
             @if (Auth::check())
             <li class="action" style="margin: 0 10px;">
-                @if (Auth::user()->status == 'guru')
                 <a href="#" class="mymodal" data-target="modal-clues" data-header="Detail Soal" data-body="{{ url('setsoal') }}">Buat Soal</a>
-                @else
-                <a href="{{ url('question') }}">Kerjakan Soal</a>
-                @endif
+            </li>
+            <li class="action" style="margin: 0 10px;">
+                <a href="{{ url('search') }}">Kerjakan Soal</a>
             </li>
             <li>
                 <a href="#" id="toggle" class="action" style="margin: 0 10px;">
@@ -22,11 +29,16 @@
                 </a>
                 <div class="dropdown-field-notif">
                     <ul class="dropdown-list-notif">
+                        @if ($notif->count() == 0)
+                        <li class="list" style="margin: 0;">
+                            <p class="center">Belum ada notifikasi.</p>
+                        </li>
+                        @endif
                         @foreach ($notif as $a)
                         <li class="list" style="margin: 0;">
                             <div style="width: 34px; height: 34px; position: absolute; display: inline-block;">
                                 <a href="{{ url('user') }}/{{ $a->notifBy->username}}">
-                                    <img src="{{ asset('images/default_pic.png') }}" class="responsive-img circle" alt="">
+                                    <img src="{{ $a->notifBy->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.$a->notifBy->avatar.'') }}" class="responsive-img circle" alt="">
                                 </a>
                             </div>
                             <div style="display: inline-block; margin-left: 40px;">
@@ -49,24 +61,18 @@
                     </ul>
                 </div>
             </li>
-            <li class="avatar">
+            <li>
                 <a href="#" id="toggle">
-                    @if (Auth::user()->avatar == '')
-                    <img class="responsive-img circle" id="avaPic" src="{{ asset('images/default_pic.png') }}" alt="">
-                    @else
-                    <img class="responsive-img circle" src="{{ Auth::user()->avatar }}" alt="">
-                    @endif
+                    <div class="avatar circle">
+                        <img class="responsive-img" id="avaPic" src="{{ Auth::user()->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.Auth::user()->avatar.'') }}" alt="">
+                    </div>
                 </a>
                 <div class="dropdown-field">
                     <ul class="dropdown-list">
-                        @if (Auth::user()->status == 'guru')
+
                         <li><a href="#" class="mymodal" data-target="modal-clues" data-header="Detail Soal" data-body="{{ url('setsoal') }}">Soal Baru</a></li>
-                        <li><a href="{{ url('question') }}">Lihat Soal</a></li>
+                        {{-- <li><a href="#" class="mymodal" data-target="modal-clues" data-header="Detail Materi" data-body="{{ url('article') }}">Tulis Materi/Artikel</a></li> --}}
                         <div class="divider" style="margin: 3px 0;"></div>
-                        @else
-                        <li><a href="{{ url('question') }}">Lihat Soal</a></li>
-                        <div class="divider" style="margin: 3px 0;"></div>
-                        @endif
                         <li><a href="{{ url('user') }}">Profile</a></li>
                         <li><a href="{{ url('settings') }}">Pengaturan</a></li>
                         <li><a href="{{ url('logout') }}">Keluar</a></li>
@@ -75,34 +81,11 @@
             </li>
             {{-- <li><a href="{{ url('logout') }}">Logout</a></li> --}}
             @else
-            <li><a href="{{ url('register') }}">Daftar</a></li>
-            <li><a href="{{ url('login') }}">Masuk</a></li>
+            <li class="action" style="margin-top: 21px;"><a style="margin: 0 10px;" href="{{ url('login') }}">Masuk</a></li>
             @endif
         </ul>
     </div>
 </header>
-
-<script>
-    $(document).ready(function(){
-        
-        $('.read').click(function(event) {
-            var id = $(this).data('id');
-            var taget = $(this);
-            $.ajax({
-                url: '{{ url('readnotif') }}/'+id,
-                type: 'GET',
-                success: function(result){
-                    $('.read[data-id="'+result+'"]').remove();
-                    var n = $('.read').length;
-                    window.countread = n;
-                    if ($('.read').length == 0) {
-                        $('.head-notif').hide();
-                    }
-                }
-            })
-        });
-    })
-</script>
 
 
 

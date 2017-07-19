@@ -7,7 +7,7 @@
 	font-family: Oxygen-Bold;
 	src: url('../fonts/Oxygen/Oxygen-Bold.ttf') format('truetype');
 }
-.container.bodyy{
+.bodyy{
 	min-height: calc(100vh - 136px);
 	padding-bottom: 20px;
 }
@@ -105,6 +105,20 @@ a span.glyphicon{
 }
 
 
+input.form-control:focus,
+#biograph:focus{
+	border: 1px solid #58595B;
+	outline: none;
+	box-shadow: none;
+}
+
+.alert-danger{
+	background-color: #fff;
+}
+
+.input-desc{
+	font-size: 11px;
+}
 
 
 

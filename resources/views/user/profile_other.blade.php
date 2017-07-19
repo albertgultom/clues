@@ -5,63 +5,32 @@
 
 	<div class="profile-container">
 		<div class="right">
-			<h5 class="desc stat">{{$user->status}}</h5>
-			<h5 class="desc school">{!! $user->school_id == '' ? '<span>Sekolah belum ditambahkan</span>' : $user->school_id !!}</h5>
+			{{-- <h5 class="desc stat">{{$user->status}}</h5> --}}
+			{{-- <h5 class="desc school">{!! $user->school_id == '' ? '<span>Sekolah belum ditambahkan</span>' : $user->school_id !!}</h5> --}}
 		</div>
-		<div class="profile-picture left">
-			<img class="responsive-img circle" src="{{ $user->avatar == '' ? asset('images/default_pic.png') : $user->avatar }}" alt="">
-			<p class="center" style="margin-top: 11px;">{{ $user->username}}</p>
+		<div class="left">
+			<div class="profile-picture circle">
+				<img class="responsive-img" src="{{ $user->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.$user->avatar.'') }}" alt="">
+			</div>
+			<p class="center username" style="margin-top: 11px;">{{ $user->username}}</p>
 		</div>
 		<div class="description">
 			<h1 class="name">{!! $user->name == '' ? '<span>Nama belum ditambahkan</span>' : $user->name !!}</h1>
-			<a href="{{ url('followers') }}" class="foll"><span>{{ $user->followers->count() }}</span> Pengikut</a>
-			<a href="{{ url('following') }}" class="foll"><span>{{ $user->followings->count() }}</span> Diikuti</a>
+			<a style="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Pengikut" data-body="{{ url('followers/'.$user->id) }}"><span>{{ $user->followers->count() }}</span> Pengikut</a>
+			<a hstyle="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Diikuti" data-body="{{ url('followings/'.$user->id) }}"><span>{{ $user->followings->count() }}</span> Diikuti</a>
 			<p class="foll"><span>{{ $countpost }}</span> Kiriman Soal</p>
+			@if (Auth::user()->username != $user->username)
 			<button class="foll following btn btn-default">{{ $following == 1 ? 'Following' : 'Follow'}}</button>
-			<p class="bio">{{ $user->biography }}</p>
+			@endif
+			<div class="bio">{!! $user->biography !!}</div>
 		</div>
 		
 	</div>
 
-	@if ($countpost == '0')
+	@if ($postedquestion->count() == '0')
 	<h2 class="center" style="margin-top: 20px;">Belum ada postingan dari {{ $user->username}}.</h2>
 	@else
-	<div class="section row">
-		@foreach ($postedquestion as $a)
-		@if (substr($a->level, 0, 3) == 'SD ')
-		@php($sign = 'SD')
-		@elseif(substr($a->level, 0, 3) == 'SMP')
-		@php($sign = 'SMP')
-		@elseif(substr($a->level, 0, 3) == 'SMA')
-		@php($sign = 'SMA')
-		@elseif(substr($a->level, 0, 3) == 'SMK')
-		@php($sign = 'SMK')
-		@elseif(substr($a->level, 0, 3) == 'Lai')
-		@php($sign = 'Lain-lain')
-		@endif
-
-		<div class="col-md-4">
-			<div class="pin" data-url="{{ url('question/'.$a->id.'/create') }}">
-				<a class="act" href="{{ url('question/'.$a->id.'/play') }}">
-					{{-- <span class="glyphicon glyphicon-play act" data-toggle="tooltip" data-placement="bottom" title="Kerjakan"></span> --}}
-					<strong>Kerjakan</strong>
-				</a>
-				<h2 class="{{$sign}}"><strong>{{$sign}}</strong></h2>
-				<h4 style="margin: 10px 0;" data-toggle="tooltip" data-placement="bottom" title="Nama Soal"><strong>{{$a->name}}</strong></h4>
-				<p><span data-toggle="tooltip" data-placement="bottom" title="Pendidikan" class="glyphicon glyphicon-home"></span> : {{$a->level}}</p>
-				<p><span data-toggle="tooltip" data-placement="bottom" title="Mata Pelajaran" class="glyphicon glyphicon-book"></span> : {{$a->study_name}}</p>
-				<p><span data-toggle="tooltip" data-placement="bottom" title="Waktu" class="glyphicon glyphicon-hourglass"></span> : {{$a->time}} Menit</p>
-				<p><span data-toggle="tooltip" data-placement="bottom" title="Jumlah Soal" class="glyphicon glyphicon-folder-open"></span> : {{$a->questions->count()}}</p>
-				<p><span data-toggle="tooltip" data-placement="bottom" title="Dibuat" class="glyphicon glyphicon-record"></span> : {{$a->created_at->diffForHumans()}}</p>
-				<div class="divider"></div>
-				<div class="right">
-					<p style="display: inline-block;"><span class="glyphicon glyphicon-heart"></span> {{$a->likes->count() }} Suka</p> 
-					<p style="display: inline-block;"><span class="glyphicon glyphicon-play"></span> {{$a->plays->count() }} Dikerjakan</p>
-				</div>
-			</div>
-		</div>
-		@endforeach
-	</div>
+	@include('partials.questionset');
 	@endif	
 
 
@@ -153,131 +122,7 @@
 
 </div>
 <style>
-	/*tab content*/
-	/*.container {
-		background-color: #f2f2f2;
-		padding: 10px;
-		border: 2px solid #CCCCCC;
-		max-width: 900px;
-		margin: 0 auto;
-		height: 470px;
-		display: flex;
-		flex-flow: column wrap;  Shorthand – you could use ‘flex-direction: column’ and ‘flex-wrap: wrap’ instead 
-		justify-content: flex-start;
-		align-items: flex-start;
-	}
-
-	.item {
-		background-color: orange;
-		height: 150px;
-		width: 31%;
-		margin: 1%;
-		padding: 10px;
-	}*/
-
-
-	.nav-tab-content {
-		/*display: flex;
-		flex-flow: column wrap;  
-		flex-direction: column; 
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;*/
-		/*position: relative;*/
-		/*padding: 10px;*/
-		max-width: 100%;
-		width: 100%;
-		/*max-width: 1100px;*/
-		/*min-width: 800px;*/
-		margin: 24px 0;
-	}
-
-	/*.section{
-		-webkit-column-count: 3;
-		-webkit-column-gap: 10px;
-		-webkit-column-fill: auto;
-		-moz-column-count: 3;
-		-moz-column-gap: 10px;
-		-moz-column-fill: auto;
-		column-count: 4;
-		column-gap: 15px;
-		column-fill: auto;
-	}
-	@media (min-width: 960px) {
-		.section {
-			-webkit-column-count: 4;
-			-moz-column-count: 4;
-			column-count: 4;
-		}
-	}
-
-	@media (min-width: 1100px) {
-		.section {
-			-webkit-column-count: 5;
-			-moz-column-count: 5;
-			column-count: 5;
-		}
-	}*/
-
-	.section .pin {
-		margin-bottom: 33px;
-		height: 286px;
-		/*-webkit-column-break-inside: avoid;
-		-moz-column-break-inside: avoid;
-		column-break-inside: avoid;*/
-		
-		padding: 13px;
-		background: white;
-		border: 1px solid rgba(0,0,0,.15);
-		border-radius: 4px;
-		padding: 13px;
-	}
-	/*.pin h4{
-		min-height: 35px;
-	}*/
-	.pin:hover{
-		/*cursor: pointer;*/
-		box-shadow: 0 6px 12px rgba(0,0,0,.175);
-		/*margin-top: -2px;*/
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;
-
-	}
-	.pin .act{
-		/*display: none;*/
-		background-color: #fff;
-		color: #aaa;
-		float: right;
-		/*border-radius: 50%;*/
-		padding: 4px;
-		/*border: 1px solid #aaa;*/
-	}
-
-	.pin img {
-		width: 100%;
-		border-bottom: 1px solid #ccc;
-		padding-bottom: 15px;
-		margin-bottom: 5px;
-	}
-
-	.SD{
-		color: #dd7a78;
-	}
-	.SMP{
-		color: #0E5C9A;
-	}
-	.SMK{
-		color: #A9ABAD;
-	}
-	.SMK{
-		color: #333;
-	}
-	.Lain-lain{
-		color: #E66C69;
-	}
-
+	
 
 
 	/*profile*/
@@ -342,8 +187,12 @@
 		margin-left: 180px;
 	}
 	.profile-picture{
+		overflow: hidden;
 		height: 150px;
 		width: 150px;
+	}
+	.bio{
+		max-width: 60%;
 	}
 </style>
 <script>
@@ -381,8 +230,12 @@
 				success: function(){
 					if ($('.following').html() == 'Follow') {
 						$('.following').html('Following');
+						var fol = parseInt($('.follower').html()) + 1;
+						$('.follower').html(fol);
 					}else if($('.following').html() == 'Following'){
 						$('.following').html('Follow');
+						var fol = parseInt($('.follower').html()) - 1;
+						$('.follower').html(fol);
 					}
 				},
 				beforeSend: function(){

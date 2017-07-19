@@ -14,8 +14,14 @@ class QuestionSetController extends Controller
 		$this->middleware('auth');
 	}
 
-	function setsoal(){
-		return view('questionset.setsoal');
+	function setsoal(Request $request){
+		if ($request->id != '') {
+			$questionset = QuestionSet::find($request->id);
+		}else{
+			$questionset = QuestionSet::find($request->id);
+		}
+		
+		return view('questionset.setsoal', compact('questionset'));
 	}
 
 	function store(Request $request){
@@ -65,5 +71,15 @@ class QuestionSetController extends Controller
 				'question_set_id' => $request->question_set_id
 				]);
 		}
+	}
+
+	function postedquestion($id){
+		$postedquestion = QuestionSet::where('post', '1')->where('user_id', $id)->get();
+		return view('partials.questionset', compact('postedquestion'));
+	}
+
+	function archivequestion($id){
+		$postedquestion = QuestionSet::where('post', '0')->where('user_id', $id)->get();
+		return view('partials.questionset', compact('postedquestion'));
 	}
 }

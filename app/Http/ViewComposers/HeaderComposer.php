@@ -18,9 +18,10 @@ public function compose(View $view)
 {
     if (Auth::check()) {
         $notifcountunreadable = Notification::where('user_id', Auth::user()->id)->where('read', '1')->count();
-        $notification = Notification::where('user_id', Auth::user()->id)->get();
+        $notification = Notification::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         $view->with('notif', $notification);
         $view->with('notifcount', $notifcountunreadable);
+
     }
 }
 

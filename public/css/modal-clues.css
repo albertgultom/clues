@@ -15,6 +15,7 @@
 
 /* Modal Content/Box */
 .modal-content-clues {
+    opacity: 0;
     transition: all 0.5s ease-in-out;
     background-color: #fefefe;
     margin: 5% auto; /* 15% from the top and centered */
@@ -22,14 +23,20 @@
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
+    overflow-y: scroll;
+    max-height: calc(100% - 128px);
+}
+.modal-content-clues.show{
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
 }
 .modal-body-clues{
-    height: 100%;
+    /*overflow-y: scroll;*/
 }
 .modal-header-clues{
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    margin-bottom: 10px;
+    /*border-bottom: 1px solid rgba(0,0,0,.15);*/
+    margin-bottom: 20px;
 }
 .close {
     color: #aaa;
@@ -46,7 +53,12 @@
 
 
 /* Modal Content/Box Ask */
+.modal-clues-ask .modal-content-clues.show{
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
 .modal-clues-ask .modal-content-clues {
+    opacity: 0;
     transition: all 0.5s ease-in-out;
     background-color: #fefefe;
     margin: 5% auto; /* 15% from the top and centered */
@@ -70,8 +82,7 @@
     width: calc(50% - 4px);
 }
 .modal-clues-ask .modal-header-clues{
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .modal-clues-ask .close {
     position: relative;

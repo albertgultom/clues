@@ -17,15 +17,9 @@ class QuestionController extends Controller
 		$this->middleware('auth');
 	}
 
-	function index(){
-
-		return view('question.setsoal');
-	}
-
 	function create($id){
-		$status = Auth::user()->status;
-		if ($status == 'guru') {
-			$questionset = QuestionSet::find($id);
+		$questionset = QuestionSet::find($id);
+		if (Auth::user()->id == $questionset->user_id) {
 			$questioncount = Question::where('question_set_id', $id)->count();
 			// dd($questioncount);
 			if ($questioncount == 0) {
@@ -40,11 +34,11 @@ class QuestionController extends Controller
 		}
 	}
 
-	function edit($id){
-		$questionset = QuestionSet::find($id);
-		return view('questionset.edit', compact('questionset'));
+	// function edit($id){
+	// 	$questionset = QuestionSet::find($id);
+	// 	return view('questionset.edit', compact('questionset'));
 
-	}
+	// }
 
 	function store(Request $request){
 		$for = $request->save_for;
@@ -199,6 +193,10 @@ class QuestionController extends Controller
 		}
 
 		return $result;
+	}
+
+	function upload(Request $request){
+		dd($request->uploadedFile->originalName());
 	}
 
 }
