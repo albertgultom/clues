@@ -66,10 +66,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         preg_match_all ("/^(.+)@[^@]+$/", $data['email'], $email);
-        // dd($email[1][0]);
-        Mail::send('mail.welcome', array('firstname' => $data['name']), function($message) {
-            $message->to($data['email'], $data['name'])->subject('Selamat datang di Clues!');
-        });
+
+        Mail::send('mail.welcome', array('firstname' => $data['name']), function($message) use ($data) {
+         $message->to($data['email'], $data['name'])->subject('Selamat datang di Clues!');
+     });
         return User::create([
             'name' => $data['name'],
             'username' => $email[1][0],

@@ -5,8 +5,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 Use App\Notification;
 
-class HeaderComposer 
-{
+class HeaderComposer {
 
 
 /**
@@ -15,12 +14,11 @@ class HeaderComposer
 * @param  View $view
 * @return void
 */
-public function compose (View $view)
+public function compose(View $view)
 {
-	if (Auth::check () ) {
-		$id = Auth::user()->id;
-		$notifcountunreadable = Notification::where('user_id', $id)->where('read', '1')->count();
-		$notification = Notification::where('user_id', $id)->orderBy('created_at', 'desc')->get();
+	if (Auth::check()) {
+		$notifcountunreadable = Notification::where('user_id', Auth::user()->id)->where('read', '1')->count();
+		$notification = Notification::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 		$view->with('notif', $notification);
 		$view->with('notifcount', $notifcountunreadable);
 
