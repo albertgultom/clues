@@ -8,13 +8,13 @@ class Following extends Model
 {
 	protected $guarded = [];
 
-	public function user(){
-		return $this->belongsTo('App\User');
+	public function following(){
+		return $this->belongsTo('App\User', 'following_id');
 	}
-	
-	public function users()
+
+	public function follower()
 	{
-		return $this->belongsToMany('App\User', 'following_user', 'user_id', 'following_id');
+		return $this->belongsTo('App\User', 'user_id');
 	}
 
 }

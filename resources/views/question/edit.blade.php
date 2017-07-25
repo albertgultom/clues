@@ -1,87 +1,89 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content-saved">
-	<div class="center">
-		<div class="btn red">Tersimpan</div>
-		
-	</div>
-</div>
-
 <div class="container">
-	<div class="header-soal">
-		<h1 class="center judul-soal">{{$questionset->name}}</h1>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-3">
-				<p>Mata Pelajaran : {{$questionset->study_name}}</p>
-			</div>
-			<div class="col-md-4">
-				<p>Jenjang Pendidikan : {{$questionset->level}}</p>
-			</div>
-			<div class="col-md-4 col-md-offset-3">
-				<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
-			</div>
-			<div class="col-md-4">
-				<p>Waktu Soal : {{$questionset->time}}</p>
-			</div>
+	<div class="content-saved">
+		<div class="center">
+			<div class="btn red">Tersimpan</div>
+			
 		</div>
 	</div>
 
-	<div class="soal-container">
-		@foreach ($questions as $question)
-		<div class="soal" data-id="{{$question->id}}">
-			<span class="close">&times;</span>
-			<p class="no-soal nomor"></p>
-			<div data-soal="question" class="editor-container">
-				{!! $question->question !!}
+	<div class="container">
+		<div class="header-soal">
+			<h1 class="center judul-soal">{{$questionset->name}}</h1>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-3">
+					<p>Mata Pelajaran : {{$questionset->study_name}}</p>
+				</div>
+				<div class="col-md-4">
+					<p>Jenjang Pendidikan : {{$questionset->level}}</p>
+				</div>
+				<div class="col-md-4 col-md-offset-3">
+					<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
+				</div>
+				<div class="col-md-4">
+					<p>Waktu Soal : {{$questionset->time}}</p>
+				</div>
 			</div>
-			<div class="option">
-				<p class="no-soal">A.</p>
-				<div data-soal="option_a" class="editor-option">{!!$question->option_a!!}</div>
-				<p class="no-soal">B.</p>
-				<div data-soal="option_b" class="editor-option">{!!$question->option_b!!}</div>
-				<p class="no-soal">C.</p>
-				<div data-soal="option_c" class="editor-option">{!!$question->option_c!!}</div>
-				<p class="no-soal">D.</p>
-				<div data-soal="option_d" class="editor-option">{!!$question->option_d!!}</div>
-				<p class="no-soal">E.</p>
-				<div data-soal="option_e" class="editor-option">{!!$question->option_e!!}</div>
-			</div>
-			<div class="option">
-				<div class="row">
-					<div class="form-group">
-						<label for="answer_true" class="col-md-1 control-label">Jawaban Benar</label>
-						<div class="col-md-3">
-							<select name="answer_true" data-soal="answer_true" id="answer_true" class="answer_true form-control">
-								<option value="" disabled selected></option>
-								<option {{$question->answer_true == 'A' ? 'selected' : ''}} value="A">A</option>
-								<option {{$question->answer_true == 'B' ? 'selected' : ''}} value="B">B</option>
-								<option {{$question->answer_true == 'C' ? 'selected' : ''}} value="C">C</option>
-								<option {{$question->answer_true == 'D' ? 'selected' : ''}} value="D">D</option>
-								<option {{$question->answer_true == 'E' ? 'selected' : ''}} value="E">E</option>
-							</select>
+		</div>
+
+		<div class="soal-container">
+			@foreach ($questions as $question)
+			<div class="soal" data-id="{{$question->id}}">
+				<span class="close">&times;</span>
+				<p class="no-soal nomor"></p>
+				<div data-soal="question" class="editor-container">
+					{!! $question->question !!}
+				</div>
+				<div class="option">
+					<p class="no-soal">A.</p>
+					<div data-soal="option_a" class="editor-option">{!!$question->option_a!!}</div>
+					<p class="no-soal">B.</p>
+					<div data-soal="option_b" class="editor-option">{!!$question->option_b!!}</div>
+					<p class="no-soal">C.</p>
+					<div data-soal="option_c" class="editor-option">{!!$question->option_c!!}</div>
+					<p class="no-soal">D.</p>
+					<div data-soal="option_d" class="editor-option">{!!$question->option_d!!}</div>
+					<p class="no-soal">E.</p>
+					<div data-soal="option_e" class="editor-option">{!!$question->option_e!!}</div>
+				</div>
+				<div class="option">
+					<div class="row">
+						<div class="form-group">
+							<label for="answer_true" class="col-md-1 control-label">Jawaban Benar</label>
+							<div class="col-md-3">
+								<select name="answer_true" data-soal="answer_true" id="answer_true" class="answer_true form-control">
+									<option value="" disabled selected></option>
+									<option {{$question->answer_true == 'A' ? 'selected' : ''}} value="A">A</option>
+									<option {{$question->answer_true == 'B' ? 'selected' : ''}} value="B">B</option>
+									<option {{$question->answer_true == 'C' ? 'selected' : ''}} value="C">C</option>
+									<option {{$question->answer_true == 'D' ? 'selected' : ''}} value="D">D</option>
+									<option {{$question->answer_true == 'E' ? 'selected' : ''}} value="E">E</option>
+								</select>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="no-soal">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-				</div>
-				<div data-soal="penjelasan" class="editor-penjelasan">
-					{!!$question->explanation!!}
+					<div class="no-soal">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
+					</div>
+					<div data-soal="penjelasan" class="editor-penjelasan">
+						{!!$question->explanation!!}
+					</div>
 				</div>
 			</div>
+			@endforeach
 		</div>
-		@endforeach
 	</div>
-</div>
-<div class="center btn-action">
-	<button class="btn btn-default blue tambah-soal" data-id="{{$questionset->id}}">Tambah Soal</button>
-	@if ($questionset->post == '0')
-	<button class="btn btn-default blue posting-soal" data-id="{{$questionset->id}}">Posting Soal</button>
-	@else
-	<button class="btn btn-default blue arsip-soal" data-id="{{$questionset->id}}">Arsip Soal</button>
-	@endif
-	<a href="{{ url('user') }}" class="btn btn-default red">Kembali</a>
+	<div class="center btn-action">
+		<button class="btn btn-default blue tambah-soal" data-id="{{$questionset->id}}">Tambah Soal</button>
+		@if ($questionset->post == '0')
+		<button class="btn btn-default blue posting-soal" data-id="{{$questionset->id}}">Posting Soal</button>
+		@else
+		<button class="btn btn-default blue arsip-soal" data-id="{{$questionset->id}}">Arsip Soal</button>
+		@endif
+		<a href="{{ url('user') }}" class="btn btn-default red">Kembali</a>
+	</div>
 </div>
 <style>
 	.btn-action{

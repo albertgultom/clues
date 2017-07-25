@@ -4,43 +4,57 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" type="image/png" href="{{ asset('img/clues-logo.png') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>CLUES - APLIKASI TRY OUT GRATIS</title>
+    <title>CLUES</title>
     
 
     
     <!-- Styles -->
     {{-- <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"> --}}
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito|Oxygen" rel="stylesheet"> --}}
-    <script src="{{ asset('js/medium-editor.min.js') }}"></script>
+    {{-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> --}}
 
     
-    <link rel="stylesheet" href="{{ url('css/select2.min.css') }}">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/themes/beagle.min.css') }}">
-    <link rel="stylesheet" href="{{ url('css/medium-editor.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/modal-clues.css') }}">
     <link rel="stylesheet" href="{{ url('css/header-clues.css') }}">
+    <link rel="stylesheet" href="{{ url('css/medium-editor.min.css') }}">
+    <link rel="stylesheet" href="{{ url('css/medium-editor-embed-button.css') }}">
+    {{-- <link rel="stylesheet" href="{{ url('css/medium-editor-insert-plugin.css') }}"> --}}
+    <link href="{{ asset('css/tagmanager.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/tagmanager.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('js/radialIndicator.min.js') }}"></script>
     <script src="{{ asset('js/myjs.js') }}"></script>
     <script src="{{ asset('js/modal-clues.js') }}"></script>
     <script src="{{ asset('js/header-clues.js') }}"></script>
-    <script src="{{ asset('js/pinterest-grid.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/mathjax/MathJax.js?config=TeX-AMS_HTML') }}"></script>
+    {{-- <script src="{{ asset('js/pinterest-grid.js') }}"></script> --}}
+    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    
+    <script src="{{ asset('js/medium-editor.min.js') }}"></script>
+    <script src="{{ asset('js/medium-editor-embed-button.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.iframe-transport.js') }}"></script>
+    {{-- <script src="{{ asset('js/handlebars.runtime.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-sortable-min.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('js/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.cycle2.center.min.js') }}"></script>
+    <script src="{{ asset('js/medium-editor-insert-plugin.min.js') }}"></script>
+    --}}
+
+    <script src="{{ asset('js/jQuery.print.js') }}"></script>
+    <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
+
 
 
 </head>
@@ -57,7 +71,7 @@
     @endforeach --}}
     {{-- <h1>{{$id}}</h1> --}}
 
-    <div class="container bodyy">
+    <div class="bodyy">
         @yield('content')
     </div>
 
@@ -109,6 +123,7 @@
         height: 5px;
         width: 100%;
         background-color: #bdbdbd;
+        z-index: 100;
     }
 
     .bar{
@@ -160,5 +175,6 @@
     /* end linear loading */
 
 </style>
-{{-- loader js --}}
+<script>$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });</script>
+
 

@@ -15,6 +15,8 @@ $(document).ready(function(){
             'display': 'none',
             'z-index': '-999'
         });
+        $('.modal-content-clues').removeClass('show');
+        $('.modal-header-clues').html('');
         $('.modal-body-clues').html('');
     });
     $(window).click(function(event) {
@@ -25,6 +27,8 @@ $(document).ready(function(){
                     'display': 'none',
                     'z-index': '-999'
                 });
+                $('.modal-content-clues').removeClass('show');
+                $('.modal-header-clues').html('');
                 $('.modal-body-clues').html('');
             }
         });
@@ -46,6 +50,7 @@ function show_modal(target, body, header, url_yes, run_function){
             success: function(data){
                 $('.modal-header-clues').html('<h2 class="center">'+header+'</h2>');
                 $('.modal-body-clues').html(data);
+                $('.modal-content-clues').addClass('show');
             },
             beforeSend: function(){
                 $('.bar-container').css('visibility', 'visible');
@@ -55,9 +60,8 @@ function show_modal(target, body, header, url_yes, run_function){
             }
         })
     }else{
-        // var url_yes = $(this).attr('url-yes');
-        // var run_function = $(this).data('function');
         $('.modal-body-clues').html('<h4><strong>'+body+'</strong></h4>');
+        $('.modal-clues-ask .modal-content-clues').addClass('show');
         if (url_yes != '') {
             $('.modal-clues-ask .option a.blue').attr('href', yes);
         }else{

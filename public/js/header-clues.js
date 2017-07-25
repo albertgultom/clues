@@ -1,4 +1,22 @@
 $(document).ready(function(){
+
+    $('header .read').click(function() {
+        var id = $(this).data('id');
+        var taget = $(this);
+        $.ajax({
+            url: 'readnotif/'+id,
+            type: 'GET',
+            success: function(result){
+                $('.read[data-id="'+result+'"]').remove();
+                var n = $('.read').length;
+                window.countread = n;
+                if ($('.read').length == 0) {
+                    $('.head-notif').hide();
+                }
+            }
+        })
+    });
+
     $('header a[id="toggle"]').click(function(event) {
         event.preventDefault();
     });

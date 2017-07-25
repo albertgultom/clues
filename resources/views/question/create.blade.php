@@ -1,88 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content-saved">
-	<div class="center">
-		<div class="btn red">Tersimpan</div>
-		
-	</div>
-</div>
-
 <div class="container">
-	<div class="header-soal">
-		<h1 class="center judul-soal">{{$questionset->name}}</h1>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-3">
-				<p>Mata Pelajaran : {{$questionset->study_name}}</p>
-			</div>
-			<div class="col-md-4">
-				<p>Jenjang Pendidikan : {{$questionset->level}}</p>
-			</div>
-			<div class="col-md-4 col-md-offset-3">
-				<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
-			</div>
-			<div class="col-md-4">
-				<p>Waktu Soal : {{$questionset->time}}</p>
-			</div>
+	<div class="content-saved">
+		<div class="center">
+			<div class="btn red">Tersimpan</div>
+			
 		</div>
 	</div>
 
-	<div class="soal-container">
-		@foreach ($questions as $question)
-		<div class="soal" data-id="{{$question->id}}">
-			<span class="close">&times;</span>
-			<p class="no-soal nomor"></p>
-			<div data-soal="question" class="editor-container">
-				{!! $question->question !!}
+	<div class="container printable">
+		<div class="header-soal">
+			<h1 class="center judul-soal">{{$questionset->name}}</h1>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-3">
+					<p>Mata Pelajaran : {{$questionset->study_name}}</p>
+				</div>
+				<div class="col-md-4">
+					<p>Jenjang Pendidikan : {{$questionset->level}}</p>
+				</div>
+				<div class="col-md-4 col-md-offset-3">
+					<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
+				</div>
+				<div class="col-md-4">
+					<p>Waktu Soal : {{$questionset->time}}</p>
+				</div>
 			</div>
-			<div class="option">
-				<p class="no-soal">A.</p>
-				<div data-soal="option_a" class="editor-option">{!!$question->option_a!!}</div>
-				<p class="no-soal">B.</p>
-				<div data-soal="option_b" class="editor-option">{!!$question->option_b!!}</div>
-				<p class="no-soal">C.</p>
-				<div data-soal="option_c" class="editor-option">{!!$question->option_c!!}</div>
-				<p class="no-soal">D.</p>
-				<div data-soal="option_d" class="editor-option">{!!$question->option_d!!}</div>
-				<p class="no-soal">E.</p>
-				<div data-soal="option_e" class="editor-option">{!!$question->option_e!!}</div>
-			</div>
-			<div class="option">
-				<div class="row">
-					<div class="form-group">
-						<label for="answer_true" class="col-md-1 control-label">Jawaban Benar</label>
-						<div class="col-md-3">
-							<select name="answer_true" data-soal="answer_true" id="answer_true" class="answer_true form-control">
-								<option value="" disabled selected></option>
-								<option {{$question->answer_true == 'A' ? 'selected' : ''}} value="A">A</option>
-								<option {{$question->answer_true == 'B' ? 'selected' : ''}} value="B">B</option>
-								<option {{$question->answer_true == 'C' ? 'selected' : ''}} value="C">C</option>
-								<option {{$question->answer_true == 'D' ? 'selected' : ''}} value="D">D</option>
-								<option {{$question->answer_true == 'E' ? 'selected' : ''}} value="E">E</option>
-							</select>
+		</div>
+
+		<div class="soal-container">
+			@foreach ($questions as $question)
+			<div class="soal" data-id="{{$question->id}}">
+				<span class="close">&times;</span>
+				<p class="no-soal nomor"></p>
+				<div data-soal="question" class="editor-container">
+					{!! $question->question !!}
+				</div>
+				<div class="option">
+					<p class="no-soal">A.</p>
+					<div data-soal="option_a" class="editor-option">{!!$question->option_a!!}</div>
+					<p class="no-soal">B.</p>
+					<div data-soal="option_b" class="editor-option">{!!$question->option_b!!}</div>
+					<p class="no-soal">C.</p>
+					<div data-soal="option_c" class="editor-option">{!!$question->option_c!!}</div>
+					<p class="no-soal">D.</p>
+					<div data-soal="option_d" class="editor-option">{!!$question->option_d!!}</div>
+					<p class="no-soal optional_e">E.</p>
+					<div data-soal="option_e" class="editor-option">{!!$question->option_e!!}</div>
+				</div>
+				<div class="option answer-true-explanation">
+					<div class="row">
+						<div class="form-group">
+							<label for="answer_true" class="col-md-1 control-label">Jawaban Benar</label>
+							<div class="col-md-3">
+								<select name="answer_true" data-soal="answer_true" id="answer_true" class="answer_true form-control">
+									<option value="" disabled selected></option>
+									<option {{$question->answer_true == 'A' ? 'selected' : ''}} value="A">A</option>
+									<option {{$question->answer_true == 'B' ? 'selected' : ''}} value="B">B</option>
+									<option {{$question->answer_true == 'C' ? 'selected' : ''}} value="C">C</option>
+									<option {{$question->answer_true == 'D' ? 'selected' : ''}} value="D">D</option>
+									<option {{$question->answer_true == 'E' ? 'selected' : ''}} value="E">E</option>
+								</select>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="no-soal">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-				</div>
-				<div data-soal="penjelasan" class="editor-penjelasan">
-					{!!$question->explanation!!}
+					<div class="no-soal">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
+					</div>
+					<div data-soal="penjelasan" class="editor-penjelasan">
+						{!!$question->explanation!!}
+					</div>
 				</div>
 			</div>
+			@endforeach
 		</div>
-		@endforeach
+	</div>
+	<div class="center btn-action">
+		{{-- <button class="btn btn-default blue print-soal">Print Soal</button> --}}
+		<button class="btn btn-default blue tambah-soal" data-id="{{$questionset->id}}">Tambah Soal</button>
+		@if ($questionset->post == '0')
+		<button class="btn btn-default blue posting-soal" data-id="{{$questionset->id}}">Posting Soal</button>
+		@else
+		<button class="btn btn-default blue arsip-soal" data-id="{{$questionset->id}}">Arsip Soal</button>
+		@endif
+		<a href="{{ url('user') }}" class="btn btn-default red">Simpan & Kembali</a>
 	</div>
 </div>
-<div class="center btn-action">
-	<button class="btn btn-default blue tambah-soal" data-id="{{$questionset->id}}">Tambah Soal</button>
-	@if ($questionset->post == '0')
-	<button class="btn btn-default blue posting-soal" data-id="{{$questionset->id}}">Posting Soal</button>
-	@else
-	<button class="btn btn-default blue arsip-soal" data-id="{{$questionset->id}}">Arsip Soal</button>
-	@endif
-	<a href="{{ url('user') }}" class="btn btn-default red">Simpan & Kembali</a>
-</div>
+
 <style>
 	.btn-action{
 		margin-top: 20px;
@@ -152,9 +156,36 @@
 		opacity: 1;
 	}
 	
+	/*medium editor custom css*/
+	.medium-editor-insert-plugin p{
+		margin: 0;
+	}
+	.medium-editor-toolbar li .medium-editor-button-active, .medium-editor-toolbar li button:hover{
+		background-color: transparent;
+	}
+
+
+
 </style>
 <script>
 	$(document).ready(function(){
+
+		// $('.print-soal').click(function() {
+		// 	var optionE = '.btn-action, .answer-true-explanation';
+		// 	if ($('[data-soal="option_e"]').html() == '') {
+		// 		var optionE = '.btn-action, .answer-true-explanation, .optional_e , [data-soal="option_e"]';
+		// 	}
+
+		// 	$(".printable").print({
+		// 		//Print in a hidden iframe
+		// 		iframe : true, 
+		// 		// Don't print this
+		// 		noPrintSelector : optionE,
+		// 		// Custom document type
+		// 		doctype: '<!DOCTYPE html>'
+
+		// 	});
+		// });
 
 		$('.posting-soal').click(function(event) {
 			var id = $(this).data('id');
@@ -252,7 +283,7 @@
 						'	</div>'+
 						'</div>'+
 						'</div>');
-					
+
 					declare_editor();
 					(window.jumlahsoal)++;
 					reordernomor();
@@ -262,7 +293,7 @@
 					save2();
 				}
 			})
-			
+
 		});
 
 		// deklarasi custom function
@@ -275,25 +306,81 @@
 		save();
 		save2();
 
+
+
 		function declare_editor(){
-			var editor = new MediumEditor('.editor-container', {
+			window.editor = new MediumEditor('.editor-container', {
 				placeholder: {
 					text: 'Tulis Soal',
 					hideOnClick: false
+				},
+				buttonLabels: 'fontawesome',
+				extensions: {
+					embedButton: new EmbedButtonExtension({
+						embedOpts: {
+							oembedProxy: "https://iframe.ly/api/oembed?api_key=3bef8c4238179ff9306315&url="
+						}
+					})
+				},
+				toolbar: {
+					buttons: [
+					'h2',
+					'bold',
+					'italic',
+					'unorderedlist',
+					'orderedlist',
+					'embedButton'
+					]
 				}
 			});
 
-			var editor_penjelasan = new MediumEditor('.editor-penjelasan', {
+			window.editor_penjelasan = new MediumEditor('.editor-penjelasan', {
 				placeholder: {
 					text: 'Tulis Penjelasan',
 					hideOnClick: false
+				},
+				buttonLabels: 'fontawesome',
+				extensions: {
+					embedButton: new EmbedButtonExtension({
+						embedOpts: {
+							oembedProxy: "https://iframe.ly/api/oembed?api_key=3bef8c4238179ff9306315&url="
+						}
+					})
+				},
+				toolbar: {
+					buttons: [
+					'h2',
+					'bold',
+					'italic',
+					'unorderedlist',
+					'orderedlist',
+					'embedButton'
+					]
 				}
 			});
 
-			var editor_option = new MediumEditor('.editor-option', {
+			window.editor_option = new MediumEditor('.editor-option', {
 				placeholder: {
 					text: 'Tulis Pilihan',
 					hideOnClick: false
+				},
+				buttonLabels: 'fontawesome',
+				extensions: {
+					embedButton: new EmbedButtonExtension({
+						embedOpts: {
+							oembedProxy: "https://iframe.ly/api/oembed?api_key=3bef8c4238179ff9306315&url="
+						}
+					})
+				},
+				toolbar: {
+					buttons: [
+					'h2',
+					'bold',
+					'italic',
+					'unorderedlist',
+					'orderedlist',
+					'embedButton'
+					]
 				}
 			});
 		}
@@ -303,6 +390,7 @@
 				window.soal = $(this).html();
 			})
 		}
+		
 
 		function save(){
 			$('.editor-container, .editor-option, .editor-penjelasan').focusout(function(){

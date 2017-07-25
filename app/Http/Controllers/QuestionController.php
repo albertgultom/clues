@@ -17,15 +17,9 @@ class QuestionController extends Controller
 		$this->middleware('auth');
 	}
 
-	function index(){
-
-		return view('question.setsoal');
-	}
-
 	function create($id){
-		$status = Auth::user()->status;
-		if ($status == 'guru') {
-			$questionset = QuestionSet::find($id);
+		$questionset = QuestionSet::find($id);
+		if (Auth::user()->id == $questionset->user_id) {
 			$questioncount = Question::where('question_set_id', $id)->count();
 			// dd($questioncount);
 			if ($questioncount == 0) {
@@ -40,11 +34,11 @@ class QuestionController extends Controller
 		}
 	}
 
-	function edit($id){
-		$questionset = QuestionSet::find($id);
-		return view('questionset.edit', compact('questionset'));
+	// function edit($id){
+	// 	$questionset = QuestionSet::find($id);
+	// 	return view('questionset.edit', compact('questionset'));
 
-	}
+	// }
 
 	function store(Request $request){
 		$for = $request->save_for;
@@ -123,8 +117,13 @@ class QuestionController extends Controller
 	}
 
 	function delete($id){
-		QuestionSet::destroy($id);
-		return redirect ('user');
+		$user_id = QuestionSet::find($id)->user_id;
+		if (Auth::user()->id == $user_id) {
+			QuestionSet::destroy($id);
+			return redirect ('user');
+		}else{
+			return redirect ('user');
+		}
 	}
 
 	function play($id){
@@ -161,6 +160,17 @@ class QuestionController extends Controller
 
 	}
 
+	function resultscore($id){
+		$user_id = QuestionSet::find($id)->user_id;
+		if (Auth::user()->id == $user_id) {
+			$result = Play::where('question_set_id', $id)->get();
+			$question_name = QuestionSet::find($id)->name;
+			return view('questionset.resultexam', compact('result', 'question_name'));
+		}else{
+			return redirect('');
+		}
+	}
+
 	function dataexam($id_soal, $id_set_soal, $user_id){
 		$a = AnswerExam::where('question_id', $id_soal)
 		->where('question_set_id', $id_set_soal)
@@ -188,17 +198,21 @@ class QuestionController extends Controller
 		AnswerExam::where('question_set_id', $request->question_set_id)
 		->where('user_id', $request->user_id)->delete();
 
+		$max_score = 100;
+		$jml_soal = $request->jml_soal;
+		$total_score = $result/$jml_soal*$max_score;
+
 		$cek = Play::where('question_set_id', $request->question_set_id)
 		->where('user_id', Auth::user()->id)->count();
-
 		if ($cek == 0) {
 			Play::create([
 				'question_set_id' => $request->question_set_id,
-				'user_id' => Auth::user()->id
+				'user_id' => Auth::user()->id,
+				'score' => $total_score
 				]);
 		}
 
-		return $result;
+		return $total_score;
 	}
 
 }

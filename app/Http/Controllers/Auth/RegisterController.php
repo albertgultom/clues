@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/registerprofile';
 
     /**
      * Create a new controller instance.
@@ -48,7 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'name' => 'required|max:255',
+            'name' => 'required|max:255',
             // 'username' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -65,9 +67,12 @@ class RegisterController extends Controller
     {
         preg_match_all ("/^(.+)@[^@]+$/", $data['email'], $email);
         // dd($email[1][0]);
+        Mail::send('mail.welcome', array('firstname' => $data['name']), function($message) {
+            $message->to($data['email'], $data['name'])->subject('Selamat datang di Clues!');
+        });
         return User::create([
+            'name' => $data['name'],
             'username' => $email[1][0],
-            'status' => $data['status'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             ]);

@@ -4,106 +4,104 @@
 <script src="{{ asset('js/jquery.plugin.min.js') }}"></script>
 <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
 <script src="{{ asset('js/jquery.cookie.js') }}"></script>
-
-<div class="nilai center">
-	<div>Nilai anda</div>
-	<h1 class="result">70</h1>
-</div>
 <div class="container">
-	<div class="header-soal">
-		<h1 class="center judul-soal">{{$questionset->name}}</h1>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-3">
-				<p>Mata Pelajaran : {{$questionset->study_name}}</p>
-			</div>
-			<div class="col-md-4">
-				<p>Jenjang Pendidikan : {{$questionset->level}}</p>
-			</div>
-			<div class="col-md-4 col-md-offset-3">
-				<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
-			</div>
-			<div class="col-md-4">
-				<p>Waktu Pengerjaan : <span class="countdown">00:00:00</span></p>
-			</div>
-		</div>
+	<div class="nilai center">
+		<div>Nilai anda</div>
+		<h1 class="result">70</h1>
 	</div>
-
-	<div class="soal-container">
-		@foreach ($questions as $question)
-		<div class="soal" data-id="{{$question->id}}">
-
-			<p class="no-soal nomor"></p>
-			<div data-soal="question" class="editor-container">
-				{!! $question->question !!}
-			</div>
-			<div class="option">
-				<div class="radio">
-					<input id="a_" type="radio" name="{{$question->id}}" value="A">
-					<label for="a_">
-						<div style="position: absolute; color: #333; z-index: 10;">A</div>
-						<div class="option_question">
-							{!!$question->option_a!!}
-						</div>
-					</label>
+	<div class="container">
+		<div class="header-soal">
+			<h1 class="center judul-soal">{{$questionset->name}}</h1>
+			<div class="row">
+				<div class="col-md-12 center">
+					<span data-toggle="tooltip" data-placement="bottom" title="Tag" class="glyphicon glyphicon-tag"></span> {{$questionset->study_name}}
 				</div>
-				<div class="radio">
-					<input id="b_" type="radio" name="{{$question->id}}" value="B">
-					<label for="b_">
-						<div style="position: absolute; color: #333; z-index: 10;">B</div>
-						<div class="option_question">
-							{!!$question->option_b!!}
-						</div>
-					</label>
+				<div class="col-md-12 center">
+					<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
 				</div>
-				<div class="radio">
-					<input id="c_" type="radio" name="{{$question->id}}" value="C">
-					<label for="c_">
-						<div style="position: absolute; color: #333; z-index: 10;">C</div>
-						<div class="option_question">
-							{!!$question->option_c!!}
-						</div>
-					</label>
-				</div>
-				<div class="radio">
-					<input id="d_" type="radio" name="{{$question->id}}" value="D">
-					<label for="d_">
-						<div style="position: absolute; color: #333; z-index: 10;">D</div>
-						<div class="option_question">
-							{!!$question->option_d!!}
-						</div>
-					</label>
-				</div>
-				@if ($question->option_e != '<p><br></p>' && $question->option_e != NULL)
-				<div class="radio">
-					<input id="e_" type="radio" name="{{$question->id}}" value="E">
-					<label for="e_">
-						<div style="position: absolute; color: #333; z-index: 10;">E</div>
-						<div class="option_question">
-							{!!$question->option_e!!}
-						</div>
-					</label>
-				</div>
-				@endif
-
-			</div>
-			<div class="option answer-true-explanation">
-				<p>Jawaban Benar : <strong><span class="answer_true" style="color: #444;"></span></strong></p>
-				<div class="no-soal">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-				</div>
-				<div class="explanation">
-
+				<div class="col-md-12 center">
+					<p>Waktu Pengerjaan : <span class="countdown">00:00:00</span></p>
 				</div>
 			</div>
 		</div>
-		@endforeach
-	</div>
-	<div class="center btn-action">
-		<a href="#" class="mymodal selesai btn btn-default blue" data-target="modal-clues-ask" data-body="Apa anda yakin sudah selesai?" url-yes="" data-function="selesai()">Selesai</a>
-		{{-- <button class="btn btn-default blue" onclick="selesai()">Selesai</button> --}}
-		<button class="btn btn-default penjelasan" onclick="show_answer()">Lihat Penjelasan</button>
-		<button class="btn btn-default blue suka" onclick="like()"><span class="glyphicon glyphicon-heart{{ $like == 0 ? '-empty' : ''}}"></span> Suka</button>
-		<button class="btn btn-default red kembali">Kembali</button>
+
+		<div class="soal-container">
+			@foreach ($questions as $question)
+			<div class="soal" data-id="{{$question->id}}">
+
+				<p class="no-soal nomor"></p>
+				<div data-soal="question" class="editor-container">
+					{!! $question->question !!}
+				</div>
+				<div class="option">
+					<div class="radio">
+						<input id="a_" type="radio" name="{{$question->id}}" value="A">
+						<label for="a_">
+							<div style="position: absolute; color: #333; z-index: 10;">A</div>
+							<div class="option_question">
+								{!!$question->option_a!!}
+							</div>
+						</label>
+					</div>
+					<div class="radio">
+						<input id="b_" type="radio" name="{{$question->id}}" value="B">
+						<label for="b_">
+							<div style="position: absolute; color: #333; z-index: 10;">B</div>
+							<div class="option_question">
+								{!!$question->option_b!!}
+							</div>
+						</label>
+					</div>
+					<div class="radio">
+						<input id="c_" type="radio" name="{{$question->id}}" value="C">
+						<label for="c_">
+							<div style="position: absolute; color: #333; z-index: 10;">C</div>
+							<div class="option_question">
+								{!!$question->option_c!!}
+							</div>
+						</label>
+					</div>
+					<div class="radio">
+						<input id="d_" type="radio" name="{{$question->id}}" value="D">
+						<label for="d_">
+							<div style="position: absolute; color: #333; z-index: 10;">D</div>
+							<div class="option_question">
+								{!!$question->option_d!!}
+							</div>
+						</label>
+					</div>
+					@if ($question->option_e != '<p><br></p>' && $question->option_e != NULL)
+					<div class="radio">
+						<input id="e_" type="radio" name="{{$question->id}}" value="E">
+						<label for="e_">
+							<div style="position: absolute; color: #333; z-index: 10;">E</div>
+							<div class="option_question">
+								{!!$question->option_e!!}
+							</div>
+						</label>
+					</div>
+					@endif
+
+				</div>
+				<div class="option answer-true-explanation">
+					<p>Jawaban Benar : <strong><span class="answer_true" style="color: #444;"></span></strong></p>
+					<div class="no-soal">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
+					</div>
+					<div class="explanation">
+
+					</div>
+				</div>
+			</div>
+			@endforeach
+		</div>
+		<div class="center btn-action">
+			<a href="#" class="mymodal selesai btn btn-default blue" data-target="modal-clues-ask" data-body="Apa anda yakin sudah selesai?" url-yes="" data-function="selesai()">Selesai</a>
+			{{-- <button class="btn btn-default blue" onclick="selesai()">Selesai</button> --}}
+			<button class="btn btn-default penjelasan" onclick="show_answer()">Lihat Penjelasan</button>
+			<button class="btn btn-default blue suka" onclick="like()"><span class="glyphicon glyphicon-heart{{ $like == 0 ? '-empty' : ''}}"></span> Suka</button>
+			<button class="btn btn-default red kembali">Kembali</button>
+		</div>
 	</div>
 </div>
 
@@ -292,7 +290,10 @@
 		padding-left: 27px;
 	}
 
-
+	/*custom css for embeded file*/
+	.medium-editor-embeds.medium-editor-embeds-selected .medium-editor-embeds-overlay{
+		background-color: transparent;
+	}
 
 
 
@@ -371,7 +372,9 @@
 	function selesai(){
 		var question_set_id = '{{ $questionset->id }}';
 		var user_id = '{{ Auth::user()->id }}';
+		var jumlsoal = parseInt(window.jumlahsoal);
 		var data = {
+			jml_soal: jumlsoal,
 			user_id: user_id,
 			question_set_id: question_set_id,
 			_token: '{{ csrf_token() }}'
@@ -381,16 +384,16 @@
 			url: '{{ url('getresultexam') }}',
 			type: 'POST',
 			success: function(result){
-				var nilai = parseInt(100);
-				var resultexam = parseInt(result);
-				var jumlsoal = parseInt(window.jumlahsoal);
-				var total_nilai = resultexam/jumlsoal*nilai;
+				// var nilai = parseInt(100);
+				// var resultexam = parseInt(result);
+				// var jumlsoal = parseInt(window.jumlahsoal);
+				// var total_nilai = resultexam/jumlsoal*nilai;
 				// console.log(total_nilai);
 				$('.selesai').hide();
 				$('.penjelasan').css('display', 'inline-block');
 				$('.suka').css('display', 'inline-block');
 				$('.nilai').css('display', 'block');
-				$('.result').html(total_nilai);
+				$('.result').html(result);
 				delete_cookie('countdown_{{$questionset->id}}', window.cookie_countdown); 
 				$('.countdown').countdown('destroy',{ until: new Date(window.cookie_countdown)});
 				$('.countdown').append('00:00:00');
