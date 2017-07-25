@@ -59,43 +59,6 @@
 
  <form class="form-horizontal" role="form" method="POST" action="{{ url('setsoal') }}">
  	{{ csrf_field() }}
- 	<div class="form-group">
- 		<label for="name" class="col-md-4 control-label">Nama Soal</label>
- 		<div class="col-md-6">
- 			<input id="name" type="text" class="form-control" name="name" required autofocus>
- 		</div>
- 	</div>
- 	<div class="form-group">
- 		<label for="mapel" class="col-md-4 control-label">Tag</label>
- 		<div class="col-md-6">
- 			<input id="mapel" type="text" class="tm-input form-control" >
- 			<input type="hidden" name="mapel" >
- 		</div>
- 	</div>
-
- 	<div class="form-group">
- 		<div class="col-md-8 col-md-offset-4">
- 			<button type="submit" class="btn btn-default red">
- 				{{ $questionset->id != '' ? 'Selanjutnya' : 'Edit'}}
- 			</button>
- 		</div>
- 	</div>
- </form>
- 
- <script>
- 	$(document).ready(function(){
- 		$('.tm-input').tagsManager({
- 			prefilled: '{{ $questionset->study_name != '' ? $questionset->study_name : ''}}',
- 			delimiters: [32, 9],
- 			hiddenTagListName: 'mapel'
- 		});
- 	})
- </script>
- 
- @else
-
- <form class="form-horizontal" role="form" method="POST" action="{{ url('setsoal') }}">
- 	{{ csrf_field() }}
  	<input type="hidden" name="id" value="">
  	<div class="form-group">
  		<label for="name" class="col-md-4 control-label">Nama Soal</label>
