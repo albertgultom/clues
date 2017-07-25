@@ -76,7 +76,6 @@
 		</div>
 	</div>
 	<div class="center btn-action">
-		{{-- <button class="btn btn-default blue print-soal">Print Soal</button> --}}
 		<button class="btn btn-default blue tambah-soal" data-id="{{$questionset->id}}">Tambah Soal</button>
 		@if ($questionset->post == '0')
 		<button class="btn btn-default blue posting-soal" data-id="{{$questionset->id}}">Posting Soal</button>

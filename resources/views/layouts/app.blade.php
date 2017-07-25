@@ -39,6 +39,7 @@
     <script src="{{ asset('js/header-clues.js') }}"></script>
     {{-- <script src="{{ asset('js/pinterest-grid.js') }}"></script> --}}
     <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+
     
     <script src="{{ asset('js/medium-editor.min.js') }}"></script>
     <script src="{{ asset('js/medium-editor-embed-button.min.js') }}"></script>
@@ -54,6 +55,7 @@
 
     <script src="{{ asset('js/jQuery.print.js') }}"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
+
 
 
 

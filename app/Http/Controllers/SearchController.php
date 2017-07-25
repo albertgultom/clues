@@ -15,6 +15,7 @@ class SearchController extends Controller
 	function getResult(Request $request){
 		$keyword = '';
 		if ($request->keyword) {
+
 			$keyword = $request->keyword;
 			$postedquestion = QuestionSet::where([
 				[DB::raw("CONCAT(name, ' ', level, '', '',study_name)"), 'LIKE', "%$keyword%"],
@@ -34,6 +35,7 @@ class SearchController extends Controller
 				])
 			->paginate(9);
 			
+
 			$users = User::where('username', 'LIKE', "%$keyword%")
 			->get();
 			if ($users->count() > 1) {
@@ -67,7 +69,8 @@ class SearchController extends Controller
 			'requestpage' => $postedquestion->nextPageUrl(),
 			];
 		}
-		
+
+
 		return view('search.result', compact('keyword', 'postedquestion', 'users'));
 	}
 }

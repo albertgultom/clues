@@ -7,6 +7,7 @@
             <form action="{{ url('search') }}" method="GET">
                 <span class="glyphicon glyphicon-search red-clues"></span>
                 <input placeholder="Cari Soal/User" name="keyword" type="text">
+
             </form>
         </div>
         @endif

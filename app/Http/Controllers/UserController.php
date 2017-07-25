@@ -109,15 +109,14 @@ class UserController extends Controller
 				'biography' => $request->biography,
 				]);
 		}
-
 		if ($request->registerprofile != '') {
 			Session::flash('pesan', 'Terima kasih telah mendaftar!');
 			return redirect('');
 		}else{
 			return redirect('settings');
 		}
-		
-		
+
+
 	}
 
 	function registerprofile(){

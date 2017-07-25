@@ -15,6 +15,7 @@
  		</div>
  	</div>
  	<div class="form-group">
+
  		<label for="time" class="col-md-4 control-label">Waktu Pengerjaan</label>
  		<div class="col-md-6">
  			<select name="time" id="time" class="form-control">
@@ -73,6 +74,55 @@
  	</div>
 
  	<div class="form-group">
+ 		<div class="col-md-8 col-md-offset-4">
+ 			<button type="submit" class="btn btn-default red">
+ 				{{ $questionset->id != '' ? 'Selanjutnya' : 'Edit'}}
+ 			</button>
+ 		</div>
+ 	</div>
+ </form>
+ 
+ <script>
+ 	$(document).ready(function(){
+ 		$('.tm-input').tagsManager({
+ 			prefilled: '{{ $questionset->study_name != '' ? $questionset->study_name : ''}}',
+ 			delimiters: [32, 9],
+ 			hiddenTagListName: 'mapel'
+ 		});
+ 	})
+ </script>
+ 
+ @else
+
+ <form class="form-horizontal" role="form" method="POST" action="{{ url('setsoal') }}">
+ 	{{ csrf_field() }}
+ 	<input type="hidden" name="id" value="">
+ 	<div class="form-group">
+ 		<label for="name" class="col-md-4 control-label">Nama Soal</label>
+ 		<div class="col-md-6">
+ 			<input id="name" type="text" class="form-control" name="name" required autofocus>
+ 		</div>
+ 	</div>
+ 	<div class="form-group">
+ 		<label for="pendidikan" class="col-md-4 control-label">Level</label>
+ 		<div class="col-md-6">
+ 			<select name="level" id="pendidikan" class="form-control">
+ 				<option value="" disabled selected></option>
+ 				<option value="Umum">Umum</option>
+ 				<option value="Sekolah">Sekolah</option>
+ 				<option value="Universitas">Universitas</option>
+ 				<option value="Perusahaan">Perusahaan</option>
+ 			</select>
+ 		</div>
+ 	</div>
+ 	<div class="form-group">
+ 		<label for="mapel" class="col-md-4 control-label">Tag</label>
+ 		<div class="col-md-6">
+ 			<input id="mapel" type="text" class="tm-input form-control" autofocus>
+ 		</div>
+ 	</div>
+
+ 	<div class="form-group">
  		<label for="time" class="col-md-4 control-label">Waktu Pengerjaan</label>
  		<div class="col-md-6">
  			<select name="time" id="time" class="form-control">
@@ -113,4 +163,3 @@
  	})
  </script>
  @endif
-

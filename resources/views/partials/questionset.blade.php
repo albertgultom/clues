@@ -29,6 +29,7 @@
 		@endif
 		<div class="divider" style="margin: 50px 0 15px 0;"></div>
 		{{-- <h2 class="{{$sign}}"><strong>{{$sign}}</strong></h2> --}}
+
 		<h4 class="judulsoal" style="margin: 10px 0;"><strong>{{$a->name}}</strong></h4>
 		<p><span data-toggle="tooltip" data-placement="bottom" title="Tag" class="glyphicon glyphicon-tag"></span> : {{$a->study_name}}</p>
 		<p><span data-toggle="tooltip" data-placement="bottom" title="Waktu" class="glyphicon glyphicon-hourglass"></span> : {{$a->time}} Menit</p>
@@ -66,6 +67,7 @@
 	{{-- {!! $postedquestion->render() !!} --}}
 </div>
 {{-- <a class="next-page" href="{{$postedquestion->nextPageUrl()}}"></a> --}}
+
 <style>
 
 	.section .pin .right p{
@@ -130,6 +132,7 @@
 		transition: all 0.3s ease-in-out;
 
 	}*/
+
 	.pin .act{
 		display: none;
 		margin-right: 7px;
@@ -183,6 +186,5 @@
 				window.location.href = target;
 			}
 		});
-
 	})
 </script>

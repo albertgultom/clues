@@ -215,6 +215,10 @@ class QuestionController extends Controller
 		return $total_score;
 	}
 
+	function upload(Request $request){
+		dd($request->uploadedFile->originalName());
+	}
+
 }
 
 

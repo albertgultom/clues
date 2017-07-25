@@ -8,6 +8,7 @@
 		<br>
 		@endif
 		@if ($users->count() == '' && $postedquestion->count() == '' && $keyword != '')
+
 		<div class="divider"></div>
 		<p class="center">Pencarian dengan kata kunci "{{$keyword}}" tidak ditemukan.</p>
 		@endif

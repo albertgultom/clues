@@ -6,6 +6,7 @@
 		<div class="col-md-8">
 			<h1><strong class="red-clues">LATIHAN</strong> DAN <br> <strong class="blue-clues">BUAT SOAL</strong> <br>DENGAN CARA BARU!</h1>
 			<p>CLUES dibuat untuk memudahkan kamu dalam membuat soal dan latihan, dengan tampilan yang bersih, dan dibuat sesimpel mungkin agar kamu tidak bingung lagi mencari referensi soal atau membuat soal.</p>
+
 		</div>
 		<div class="col-md-4">
 			<div class="card">
@@ -78,6 +79,7 @@
 				<div class="card red">
 					<h3>AMBIL NILAI</h3>
 					<p>Setalah kamu membuat soal, kamu bisa mendapat nilai dari user lain yang mengerjakan soal yang kamu buat sebelumnya, dengan fitur ini kamu tidak perlu lagi menulis nilai satu persatu dari soal tersebut.</p>
+
 				</div>
 			</div>
 		</div>

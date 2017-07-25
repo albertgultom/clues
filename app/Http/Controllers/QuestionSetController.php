@@ -16,6 +16,7 @@ class QuestionSetController extends Controller
 
 	function setsoal(Request $request){
 		$questionset = QuestionSet::find($request->id);
+
 		
 		return view('questionset.setsoal', compact('questionset'));
 	}

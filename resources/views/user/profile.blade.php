@@ -41,6 +41,7 @@
 	</div>
 </div>
 
+
 <style>
 
 	.nav-clues ul{
@@ -144,7 +145,6 @@
 			success: function(data){
 				$('.nav-clues .nav-tab-content').html('');
 				$('.nav-clues .nav-tab-content').html(data);
-				
 			},
 			beforeSend: function(){
 				$('.bar-container').css('visibility', 'visible');
@@ -192,8 +192,6 @@
 			}, 550));
 		}
 	}
-
-	
 })
 </script>
 @endsection

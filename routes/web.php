@@ -19,6 +19,7 @@ Route::get('registerprofile', 'UserController@registerprofile');
 
 Route::get('question/{id}/create', 'QuestionController@create');
 Route::get('question/{id}/delete', 'QuestionController@delete');
+
 Route::get('question/{id}/play', 'QuestionController@play');
 Route::get('question/{id}/result', 'QuestionController@resultscore');
 Route::post('result', 'QuestionController@result');
@@ -44,6 +45,7 @@ Route::get('postedquestion/', 'QuestionSetController@postedquestion');
 Route::get('archivequestion/', 'QuestionSetController@archivequestion');
 
 
+
 Route::get('user/', 'UserController@view');
 Route::get('user/{username}', 'UserController@view_user');
 Route::get('settings', 'UserController@setting');
@@ -59,6 +61,7 @@ Route::post('following', 'UserController@following');
 Route::get('readnotif/{id}', 'UserController@readnotif');
 
 Route::get('search', 'SearchController@getResult');
+
 
 Route::get('followers', 'UserController@followers');
 Route::get('followings', 'UserController@followings');

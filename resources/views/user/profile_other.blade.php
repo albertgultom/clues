@@ -9,10 +9,10 @@
 	<h2 class="center" style="margin-top: 20px;">Belum ada postingan dari {{ $user->username}}.</h2>
 	@else
 	@include('partials.questionset')
+
 	@endif	
 
 </div>
-
 <script>
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();
