@@ -23,11 +23,6 @@ class QuestionSetController extends Controller
 
 	function store(Request $request){
 		// dd($request->mapel);
-		if ($request->token == '') {
-			$token = 0;
-		}else{
-			$token = $request->token;
-		}
 		$id = QuestionSet::updateOrCreate(['id' => $request->id],[
 			'name' => $request->name,
 			'token' => $token,
