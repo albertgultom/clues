@@ -30,7 +30,6 @@ class QuestionSetController extends Controller
 		}
 		$id = QuestionSet::updateOrCreate(['id' => $request->id],[
 			'name' => $request->name,
-			'study_name' => $request->mapel,
 			'token' => $token,
 			'time' => $request->time,
 			'user_id' => Auth::user()->id
