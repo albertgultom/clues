@@ -67,18 +67,6 @@
  		</div>
  	</div>
  	<div class="form-group">
- 		<label for="pendidikan" class="col-md-4 control-label">Level</label>
- 		<div class="col-md-6">
- 			<select name="level" id="pendidikan" class="form-control">
- 				<option value="" disabled selected></option>
- 				<option value="Umum">Umum</option>
- 				<option value="Sekolah">Sekolah</option>
- 				<option value="Universitas">Universitas</option>
- 				<option value="Perusahaan">Perusahaan</option>
- 			</select>
- 		</div>
- 	</div>
- 	<div class="form-group">
  		<label for="mapel" class="col-md-4 control-label">Tag</label>
  		<div class="col-md-6">
  			<input id="mapel" type="text" class="tm-input form-control" autofocus>

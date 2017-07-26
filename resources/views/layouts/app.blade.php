@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name') }} - Aplikasi membuat soal dan latihan dengan mudah</title>
     <meta name="author" content="Clues">
     <meta name="description" content="Clues dibuat untuk memudahkan kamu membuat soal dan latihan dengan cara baru">
     
