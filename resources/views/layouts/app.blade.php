@@ -3,20 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
     <link rel="icon" type="image/png" href="{{ asset('img/clues-logo.png') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>CLUES</title>
+    <title>{{ config('app.name') }}</title>
+    <meta name="author" content="Clues">
+    <meta name="description" content="Clues dibuat untuk memudahkan kamu membuat soal dan latihan dengan cara baru">
     
 
     
-    <!-- Styles -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"> --}}
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito|Oxygen" rel="stylesheet"> --}}
-    {{-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> --}}
 
     
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,7 +23,6 @@
     <link rel="stylesheet" href="{{ url('css/header-clues.css') }}">
     <link rel="stylesheet" href="{{ url('css/medium-editor.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/medium-editor-embed-button.css') }}">
-    {{-- <link rel="stylesheet" href="{{ url('css/medium-editor-insert-plugin.css') }}"> --}}
     <link href="{{ asset('css/tagmanager.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -37,25 +33,28 @@
     <script src="{{ asset('js/myjs.js') }}"></script>
     <script src="{{ asset('js/modal-clues.js') }}"></script>
     <script src="{{ asset('js/header-clues.js') }}"></script>
-    {{-- <script src="{{ asset('js/pinterest-grid.js') }}"></script> --}}
     <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
 
     
     <script src="{{ asset('js/medium-editor.min.js') }}"></script>
     <script src="{{ asset('js/medium-editor-embed-button.min.js') }}"></script>
     <script src="{{ asset('js/jquery.iframe-transport.js') }}"></script>
-    {{-- <script src="{{ asset('js/handlebars.runtime.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-sortable-min.js') }}"></script>
-    <script src="{{ asset('js/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('js/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.cycle2.center.min.js') }}"></script>
-    <script src="{{ asset('js/medium-editor-insert-plugin.min.js') }}"></script>
-    --}}
+    
 
     <script src="{{ asset('js/jQuery.print.js') }}"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
 
+
+    {{-- GOOGLE ANALYTIC --}}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103217098-1', 'auto');
+      ga('send', 'pageview');
+  </script>
 
 
 
