@@ -70,6 +70,7 @@
  		<label for="mapel" class="col-md-4 control-label">Tag</label>
  		<div class="col-md-6">
  			<input id="mapel" type="text" class="tm-input form-control" autofocus>
+ 			<input type="hidden" name="mapel" class="tm-input form-control" autofocus>
  		</div>
  	</div>
 
