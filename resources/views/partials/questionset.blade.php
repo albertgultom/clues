@@ -104,6 +104,19 @@
 		column-gap: 25px;
 		column-fill: auto;
 	}
+	@media screen and (max-width: 800px) {
+		.section{
+			-webkit-column-count: 1;
+			-webkit-column-gap: 10px;
+			-webkit-column-fill: auto;
+			-moz-column-count: 1;
+			-moz-column-gap: 10px;
+			-moz-column-fill: auto;
+			column-count: 1;
+			column-gap: 25px;
+			column-fill: auto;
+		}
+	}
 
 	.section .pin {
 		width: 100%;

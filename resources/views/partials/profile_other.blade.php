@@ -1,4 +1,4 @@
-<div class="profile-container">
+<div class="profile-container hide-on-small-only">
 	<div class="right">
 		{{-- <h5 class="desc stat">{{$user->status}}</h5> --}}
 		{{-- <h5 class="desc school">{!! $user->school_id == '' ? '<span>Sekolah belum ditambahkan</span>' : $user->school_id !!}</h5> --}}
@@ -20,6 +20,24 @@
 		<div class="bio">{!! $user->biography !!}</div>
 	</div>
 
+</div>
+<div class="hide-on-med-and-up mobile">
+	<div class="row">
+		<div class="profile-picture circle">
+			<img class="responsive-img" src="{{ Auth::user()->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.Auth::user()->avatar.'') }}" alt="">
+		</div>
+		<p class="center username" style="margin-top: 11px;">{{ Auth::user()->username}}</p>
+	</div>
+	<div class="row center">
+		<h1 class="name">{!! $user->name == '' ? '<span>Nama belum ditambahkan</span>' : $user->name !!}</h1>
+		<a style="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Pengikut" data-body="{{ url('followers/'.$user->id) }}"><span>{{ $user->followers->count() }}</span> Pengikut</a>
+		<a hstyle="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Diikuti" data-body="{{ url('followings/'.$user->id) }}"><span>{{ $user->followings->count() }}</span> Diikuti</a>
+		<p class="foll"><span>{{ $countpost }}</span> Kiriman Soal</p>
+		@if (Auth::user()->username != $user->username)
+		<button class="foll following btn btn-default">{{ $following == 1 ? 'Following' : 'Follow'}}</button>
+		@endif
+		<div class="bio">{!! $user->biography !!}</div>
+	</div>
 </div>
 
 <style>

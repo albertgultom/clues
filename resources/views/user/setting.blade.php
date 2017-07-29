@@ -22,13 +22,21 @@
 
 	<div class="row">
 		<div class="col-md-4">
-			<ul class="setting-lists">
+			<ul class="setting-lists hide-on-small-only">
 				<a href="#profile"><li>Profile</li></a>
-				<a href="#" class="mymodal" data-target="modal-clues" data-header="Detail Soal" data-body="{{ url('password') }}"><li>Rubah Password</li></a>
+				<a href="#" class="mymodal" data-target="modal-clues" data-header="Rubah Password" data-body="{{ url('password') }}"><li>Rubah Password</li></a>
 				<a href="{{ url('user') }}"><li>Kembali</li></a>
 				<div class="divider"></div>
 				<a href="{{ url('logout') }}"><li>Keluar</li></a>
 			</ul>
+		</div>
+		<div class="hide-on-med-and-up setting-list-mobile">
+			<div class="ls-cont">
+				<a href="#profile">Profile</a>
+				<a href="#" class="mymodal" data-target="modal-clues" data-header="Rubah Password" data-body="{{ url('password') }}">Rubah Password</a>
+				<a href="{{ url('user') }}">Kembali</a>
+				<a href="{{ url('logout') }}">Keluar</a>
+			</div>
 		</div>
 		<div class="col-md-8">
 			<div class="setting-content">
@@ -99,6 +107,17 @@
 </div>
 
 <style>
+	.setting-list-mobile{
+		overflow-y: scroll;
+		height: 35px;
+	}
+	.ls-cont{
+		min-width: 130%;
+	}
+	.setting-list-mobile a{
+		padding: 0 10px;
+		display: inline-block;
+	}
 	.profile-page{
 		width: 75%;
 		margin: 20px auto;

@@ -22,6 +22,7 @@ $(document).ready(function(){
     });
 
     $(window).click(function(event) {
+        // console.log(event.target.id);
         // console.log(event.target.className);
         if(event.target.id == 'avaPic'){
             var dr = $('.dropdown-field');

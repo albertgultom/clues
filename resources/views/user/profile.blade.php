@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-	<div class="profile-container">
+	<div class="profile-container hide-on-small-only">
 		<div class="right">
 			{{-- <h5 class="desc stat">{{Auth::user()->status}}</h5> --}}
 			{{-- <h5 class="desc school">{!! Auth::user()->school_id == '' ? '<span>Tambahkan Sekolah</span>' : Auth::user()->school_id !!}</h5> --}}
@@ -28,6 +28,29 @@
 			<div class="bio">{!! Auth::user()->biography == '' ? '<span>Tambahkan Bio Anda</span>' : Auth::user()->biography !!}</div>
 		</div>
 	</div>
+	<div class="hide-on-med-and-up mobile">
+		<div class="row">
+			<div class="profile-picture circle">
+				<img class="responsive-img" src="{{ Auth::user()->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.Auth::user()->avatar.'') }}" alt="">
+			</div>
+			<p class="center username" style="margin-top: 11px;">{{ Auth::user()->username}}</p>
+			<div style="position: absolute; top: 75px; right: 10px;">
+				<a href="{{ url('settings') }}" class="red-clues">
+					<span class="glyphicon glyphicon-pencil edit" data-toggle="tooltip" data-placement="bottom" title="Edit/Pengaturan"></span>
+				</a>
+				<a href="{{ url('logout') }}" class="red-clues">
+					<span class="glyphicon glyphicon-log-out logout" style="margin: 0 10px;" data-toggle="tooltip" data-placement="bottom" title="Keluar"></span>
+				</a>
+			</div>
+		</div>
+		<div class="row center">
+			<h1 class="name">{!! Auth::user()->name == '' ? '<span>Tambahkan Nama Anda</span>' : Auth::user()->name !!}</h1>
+			<a style="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Pengikut" data-body="{{ url('followers') }}"><span>{{ Auth::user()->followers->count() }}</span> Pengikut</a>
+			<a href="#" class="mymodal foll" data-target="modal-clues" data-header="Diikuti" data-body="{{ url('followings') }}"><span>{{ Auth::user()->followings->count() }}</span> Diikuti</a>
+			<p class="foll"><span>{{ $countpost }}</span> Kiriman Soal</p>
+			<div class="bio">{!! Auth::user()->biography == '' ? '' : Auth::user()->biography !!}</div>
+		</div>
+	</div>
 
 	<div class="nav-clues">
 		<ul>
@@ -43,6 +66,13 @@
 
 
 <style>
+
+	/*mobile*/
+	.mobile .profile-picture{
+		margin: 0 auto;
+		height: 70px;
+		width: 70px;
+	}
 
 	.nav-clues ul{
 		padding: 10px 0;

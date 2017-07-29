@@ -69,8 +69,14 @@ Route::get('followings', 'UserController@followings');
 Route::get('followers/{id}', 'UserController@followers_other');
 Route::get('followings/{id}', 'UserController@followings_other');
 
-
 Route::post('upload', 'QuestionController@upload');
+
+
+
+Route::get('tentang', 'HomeController@tentang');
+Route::get('syaratketentuan', 'HomeController@syaratketentuan');
+Route::get('bantuan', 'HomeController@bantuan');
+Route::get('kontak', 'HomeController@kontak');
 
 
 

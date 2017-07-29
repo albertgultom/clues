@@ -2,7 +2,7 @@
 <script src="{{ asset('js/modal-clues.js') }}"></script>
 
 @foreach ($postedquestion as $a)
-<div class="col-md-12">
+<div class="">
 	<div class="pin" data-url="{{ url('question/'.$a->id.'/create') }}">
 		<div class="headerpin left">
 			<div class="avatar-pin circle">

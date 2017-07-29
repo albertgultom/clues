@@ -99,4 +99,11 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 800px) {
+    .modal-content-clues{
+        width: 95%;
+        margin: 10% auto;
+    }
+}
+
 

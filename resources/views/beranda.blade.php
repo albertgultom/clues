@@ -7,18 +7,34 @@
 		{{session::get('pesan')}}
 	</div>
 	@endif
-	
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="col-md-12">
+				<div class="hide-on-small-only">
+					<h3><strong>Buat soal kamu sekarang, cepat dan mudah!</strong></h3>
+					<br>
+					<a href="#" class="mymodal btn btn-default red" data-target="modal-clues" data-header="Detail Soal" data-body="{{ url('setsoal') }}">Buat Soal</a>
+				</div>
+				<div class="hide-on-med-and-up">
+					<h3><strong>Buat soal kamu sekarang, cepat dan mudah!</strong></h3>
+					<p>Untuk performa yang lebih bagus kami menyarankan membuka lewat Komputer/laptop untuk membuat soal</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br>
 	<div class="row">
 		@if ($postedquestion->count() == 0)
 		<div class="col-md-8">
-			<h3>Follow beberapa user aktif untuk mendapatkan soal terbaru.</h3>
+			<h3>belum ada set soal di posting.</h3>
 		</div>
 		@elseif($postedquestion->count() > 0)
 		<div class="col-md-8">
 			@include('partials.questionset_beranda')
 		</div>
 		@endif
-		<div class="col-md-4">
+		{{-- <div class="col-md-4">
 			<div class="text-right">
 				<h4>Sugesti <span class="red-clues">User</span></h4>
 			</div>
@@ -47,7 +63,7 @@
 			</div>
 			@endif
 			@endforeach
-		</div>
+		</div> --}}
 	</div>
 
 </div>
