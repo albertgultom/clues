@@ -13,17 +13,14 @@
 		<div class="header-soal">
 			<h1 class="center judul-soal">{{$questionset->name}}</h1>
 			<div class="row">
-				<div class="col-md-4 col-md-offset-3">
-					<p>Mata Pelajaran : {{$questionset->study_name}}</p>
+				<div class="col-md-12 center">
+					<span data-toggle="tooltip" data-placement="bottom" title="Tag" class="glyphicon glyphicon-tag"></span> {{$questionset->study_name}}
 				</div>
-				<div class="col-md-4">
-					<p>Jenjang Pendidikan : {{$questionset->level}}</p>
-				</div>
-				<div class="col-md-4 col-md-offset-3">
+				<div class="col-md-12 center">
 					<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
 				</div>
-				<div class="col-md-4">
-					<p>Waktu Soal : {{$questionset->time}}</p>
+				<div class="col-md-12 center">
+					<p>Waktu Pengerjaan : <span class="countdown">00:00:00</span></p>
 				</div>
 			</div>
 		</div>
