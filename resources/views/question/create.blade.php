@@ -20,7 +20,7 @@
 					<p>Jumlah Soal : <span class="jmlsoal">1</span></p>
 				</div>
 				<div class="col-md-12 center">
-					<p>Waktu Pengerjaan : {{$questionset->time}}</p>
+					<p>Waktu Pengerjaan : {{$questionset->time}} Menit</p>
 				</div>
 			</div>
 		</div>
