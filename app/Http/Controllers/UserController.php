@@ -34,19 +34,23 @@ class UserController extends Controller
 	}
 
 	function view_user(Request $request){
-		$id = User::where('username' , $request->username)->first()->id;
-		$countpost = QuestionSet::where('post', '1')->where('user_id', $id)->count();
-		$countarchive = QuestionSet::where('post', '0')->where('user_id', $id)->count();
-		$postedquestion = QuestionSet::where('post', '1')->where('user_id', $id)->paginate(9);
 		$user = User::where('username' , $request->username)->first();
-		$following = Following::where('user_id', Auth::user()->id)->where('following_id', $id)->count();
-		if ($request->page) {
-			return [
-			'post' => view('partials.questionset2')->with(compact('postedquestion'))->render(),
-			'requestpage' => $postedquestion->nextPageUrl(),
-			];
+		if ($user != null) {
+			$id = User::where('username' , $request->username)->first()->id;
+			$countpost = QuestionSet::where('post', '1')->where('user_id', $id)->count();
+			$countarchive = QuestionSet::where('post', '0')->where('user_id', $id)->count();
+			$postedquestion = QuestionSet::where('post', '1')->where('user_id', $id)->paginate(9);
+			$following = Following::where('user_id', Auth::user()->id)->where('following_id', $id)->count();
+			if ($request->page) {
+				return [
+				'post' => view('partials.questionset2')->with(compact('postedquestion'))->render(),
+				'requestpage' => $postedquestion->nextPageUrl(),
+				];
+			}
+			return view('user.profile_other', compact('user', 'countpost', 'archivequestionsets', 'questionsets', 'postedquestion', 'following'));
+		}else{
+			return redirect('');
 		}
-		return view('user.profile_other', compact('user', 'countpost', 'archivequestionsets', 'questionsets', 'postedquestion', 'following'));
 	}
 
 	function setting(){

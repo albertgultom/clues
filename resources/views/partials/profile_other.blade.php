@@ -38,9 +38,17 @@
 		@endif
 		<div class="center">{!! $user->biography !!}</div>
 	</div>
+	<div class="divider"></div>
 </div>
 
 <style>
+	.mobile .profile-picture{
+		margin: 0 auto;
+		height: 70px;
+		width: 70px;
+	}
+
+
 	/*profile*/
 	.profile-picture{
 		overflow: hidden;
