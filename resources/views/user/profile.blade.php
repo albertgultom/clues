@@ -48,7 +48,8 @@
 			<a style="margin-left: 0;" href="#" class="mymodal foll" data-target="modal-clues" data-header="Pengikut" data-body="{{ url('followers') }}"><span>{{ Auth::user()->followers->count() }}</span> Pengikut</a>
 			<a href="#" class="mymodal foll" data-target="modal-clues" data-header="Diikuti" data-body="{{ url('followings') }}"><span>{{ Auth::user()->followings->count() }}</span> Diikuti</a>
 			<p class="foll"><span>{{ $countpost }}</span> Kiriman Soal</p>
-			<div class="bio">{!! Auth::user()->biography == '' ? '' : Auth::user()->biography !!}</div>
+			
+			<div class="center">{!! Auth::user()->biography == '' ? '' : Auth::user()->biography !!}</div>
 		</div>
 	</div>
 

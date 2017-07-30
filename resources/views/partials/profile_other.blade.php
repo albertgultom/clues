@@ -36,7 +36,7 @@
 		@if (Auth::user()->username != $user->username)
 		<button class="foll following btn btn-default">{{ $following == 1 ? 'Following' : 'Follow'}}</button>
 		@endif
-		<div class="bio">{!! $user->biography !!}</div>
+		<div class="center">{!! $user->biography !!}</div>
 	</div>
 </div>
 
