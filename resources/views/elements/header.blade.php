@@ -37,9 +37,9 @@
                         @endif
                         @foreach ($notif as $a)
                         <li class="list" style="margin: 0;">
-                            <div style="width: 34px; height: 34px; position: absolute; display: inline-block;">
+                            <div style="width: 34px; height: 34px; position: absolute; display: inline-block; overflow: hidden; border-radius: 50%;">
                                 <a href="{{ url('user') }}/{{ $a->notifBy->username}}">
-                                    <img src="{{ $a->notifBy->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.$a->notifBy->avatar.'') }}" class="responsive-img circle" alt="">
+                                    <img src="{{ $a->notifBy->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.$a->notifBy->avatar.'') }}" class="responsive-img" alt="">
                                 </a>
                             </div>
                             <div style="display: inline-block; margin-left: 40px;">
