@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-md-2 center">
 			<a style="margin-right: 20px; color: #8D8D8D;" href="https://facebook.com/clues.id"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a style="margin-right: 20px; color: #8D8D8D;" href="https://twitter.com/clues"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a style="margin-right: 20px; color: #8D8D8D;" href="https://twitter.com/clues_id"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			<a style="margin-right: 20px; color: #8D8D8D;" href="https://www.instagram.com/clues.id/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
 		</div>
 	</div>
