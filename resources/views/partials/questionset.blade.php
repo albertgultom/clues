@@ -40,25 +40,27 @@
 		<p class="red-clues"><span data-toggle="tooltip" data-placement="bottom" title="Token" class="glyphicon glyphicon-lock red-clues"></span> : Membutuhkan token</p>
 		@endif
 		<div class="divider"></div>
-		@if (Auth::user()->username != $a->user->username)
-		@if ($a->token != '')
-		<a href="#" class="mymodal" data-target="modal-clues" data-header="Masukan Token" data-body="{{ url('inputToken/'.$a->id) }}">
-			<strong>Kerjakan</strong>
-		</a>
-		@else
-		<a class="red-clues" href="{{ url('question/'.$a->id.'/play') }}">
-			<strong>Kerjakan</strong>
-		</a>
-		@endif
-		@endif
-		@if (Auth::user()->username == $a->user->username && $a->token != '')
-		<a class="red-clues" href="{{ url('question/'.$a->id.'/result') }}">
-			<strong>Lihat Hasil</strong>
-		</a>
-		@endif
-		<div class="right">
-			<p style="display: inline-block;"><span class="glyphicon glyphicon-heart"></span> {{$a->likes->count() }} Suka</p>
-			<p style="display: inline-block;"><span class="glyphicon glyphicon-play"></span> {{$a->plays->count() }} Dikerjakan</p>
+		<div class="footer-pin">
+			@if (Auth::user()->username != $a->user->username)
+			@if ($a->token != '')
+			<a href="#" class="mymodal" data-target="modal-clues" data-header="Masukan Token" data-body="{{ url('inputToken/'.$a->id) }}">
+				<strong>Kerjakan</strong>
+			</a>
+			@else
+			<a class="red-clues" href="{{ url('question/'.$a->id.'/play') }}">
+				<strong>Kerjakan</strong>
+			</a>
+			@endif
+			@endif
+			@if (Auth::user()->username == $a->user->username && $a->token != '')
+			<a class="red-clues" href="{{ url('question/'.$a->id.'/result') }}">
+				<strong>Lihat Hasil</strong>
+			</a>
+			@endif
+			<div class="right">
+				<p style="display: inline-block;"><span class="glyphicon glyphicon-heart"></span> {{$a->likes->count() }} Suka</p>
+				<p style="display: inline-block;"><span class="glyphicon glyphicon-play"></span> {{$a->plays->count() }} Dikerjakan</p>
+			</div>
 		</div>
 	</div>
 	{{-- </div> --}}
@@ -122,7 +124,6 @@
 		width: 100%;
 		margin: 0 2px 15px;
 		background: white;
-		display: inline-block;
 		border: 1px solid rgba(0,0,0,.15);
 		border-radius: 4px;
 		-webkit-column-break-inside: avoid;
@@ -137,14 +138,6 @@
 		transition: all .2s ease;
 	}
 
-	/*.pin:hover{
-		box-shadow: 0 6px 12px rgba(0,0,0,.175);
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;
-
-	}*/
 
 	.pin .act{
 		display: none;
@@ -166,6 +159,9 @@
 	.pin .judulsoal:hover{
 		cursor: pointer;
 		z-index: 11;
+	}
+	.pin .footer-pin{
+		height: 18px;
 	}
 
 

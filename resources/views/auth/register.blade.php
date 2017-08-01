@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="card">
-                <div class="card-heading center">Register</div>
+                <div class="card-heading center">DAFTAR</div>
+
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -40,7 +41,7 @@
 
                             <div class="col-md-6 col-md-offset-3">
                                 <input placeholder="Password" id="password" type="password" class="form-control" name="password" required>
-
+                                <label class="input-desc">Gunakan kombinasi huruf dan angka, min 6 karakter</label>
                                 @if ($errors->has('password'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -61,6 +62,12 @@
                                 <button type="submit" class="btn btn-default red btn-block">
                                     Daftar
                                 </button>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <br>
+                                <div style="font-size: 10px;">
+                                    Dengan mengklik "Daftar Sekarang", Anda menerima <a href="syaratketentuan">Syarat dan Ketentuan</a> clues.id
+                                </div>
                             </div>
                         </div>
                     </form>

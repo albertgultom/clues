@@ -38,25 +38,27 @@
 	<p class="red-clues"><span data-toggle="tooltip" data-placement="bottom" title="Token" class="glyphicon glyphicon-lock red-clues"></span> : Membutuhkan token</p>
 	@endif
 	<div class="divider"></div>
-	@if (Auth::user()->username != $a->user->username)
-	@if ($a->token != '')
-	<a href="#" class="mymodal" data-target="modal-clues" data-header="Masukan Token" data-body="{{ url('inputToken/'.$a->id) }}">
-		<strong>Kerjakan</strong>
-	</a>
-	@else
-	<a class="red-clues" href="{{ url('question/'.$a->id.'/play') }}">
-		<strong>Kerjakan</strong>
-	</a>
-	@endif
-	@endif
-	@if (Auth::user()->username == $a->user->username && $a->token != '')
-	<a class="red-clues" href="{{ url('question/'.$a->id.'/result') }}">
-		<strong>Lihat Hasil</strong>
-	</a>
-	@endif
-	<div class="right">
-		<p style="display: inline-block;"><span class="glyphicon glyphicon-heart"></span> {{$a->likes->count() }} Suka</p> 
-		<p style="display: inline-block;"><span class="glyphicon glyphicon-play"></span> {{$a->plays->count() }} Dikerjakan</p>
+	<div class="footer-pin">
+		@if (Auth::user()->username != $a->user->username)
+		@if ($a->token != '')
+		<a href="#" class="mymodal" data-target="modal-clues" data-header="Masukan Token" data-body="{{ url('inputToken/'.$a->id) }}">
+			<strong>Kerjakan</strong>
+		</a>
+		@else
+		<a class="red-clues" href="{{ url('question/'.$a->id.'/play') }}">
+			<strong>Kerjakan</strong>
+		</a>
+		@endif
+		@endif
+		@if (Auth::user()->username == $a->user->username && $a->token != '')
+		<a class="red-clues" href="{{ url('question/'.$a->id.'/result') }}">
+			<strong>Lihat Hasil</strong>
+		</a>
+		@endif
+		<div class="right">
+			<p style="display: inline-block;"><span class="glyphicon glyphicon-heart"></span> {{$a->likes->count() }} Suka</p> 
+			<p style="display: inline-block;"><span class="glyphicon glyphicon-play"></span> {{$a->plays->count() }} Dikerjakan</p>
+		</div>
 	</div>
 </div>
 {{-- </div> --}}
@@ -149,18 +151,8 @@
 		z-index: 11;
 	}
 
-
-	.Sekolah{
-		color: #dd7a78;
-	}
-	.Universitas{
-		color: #0E5C9A;
-	}
-	.Perusahaan{
-		color: #262626;
-	}
-	.Umum{
-		color: #333;
+	.pin .footer-pin{
+		height: 18px;
 	}
 
 </style>

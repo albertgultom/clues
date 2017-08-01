@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="card">
-                <div class="card-heading center">Login</div>
+                <div class="card-heading center">MASUK</div>
+
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -49,10 +50,16 @@
                                 <button type="submit" class="btn btn-default blue btn-block">
                                     Masuk
                                 </button>
-
-                                <a class="btn btn-default blue btn-block" href="{{ route('password.request') }}">
-                                    Lupa Password?
+                                <div class="line">
+                                    <span>Atau</span>
+                                </div>
+                                <a class="btn btn-default blue btn-block" href="{{ route('register') }}">
+                                    Datar
                                 </a>
+                                <div>
+                                    <br>
+                                    Lupa Password? Klik <a href="{{ route('password.request') }}">Disini</a>.
+                                </div>
                             </div>
                         </div>
                     </form>

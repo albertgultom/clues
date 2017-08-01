@@ -148,20 +148,6 @@
 		z-index: 11;
 	}
 
-
-	.Sekolah{
-		color: #dd7a78;
-	}
-	.Universitas{
-		color: #0E5C9A;
-	}
-	.Perusahaan{
-		color: #262626;
-	}
-	.Umum{
-		color: #333;
-	}
-
 </style>
 <script>
 	$(document).ready(function(){
