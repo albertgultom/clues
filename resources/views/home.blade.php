@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1><strong class="red-clues">LATIHAN</strong> DAN <br> <strong class="blue-clues">BUAT SOAL</strong> <br>DENGAN CARA BARU!</h1>
-			<p>CLUES dibuat untuk memudahkan kamu dalam membuat soal dan latihan, dengan tampilan yang bersih, dan dibuat sesimpel mungkin agar kamu tidak bingung lagi mencari referensi soal atau membuat soal.</p>
+			<p>CLUES dibuat untuk memudahkan kamu dalam membuat soal dan latihan, dengan tampilan yang bersih, dan dibuat sesimpel mungkin agar kamu tidak bingung lagi mencari dan membuat soal.</p>
 			<div class="center-on-small-only">
 				<a href="{{ url('register') }}" class="btn btn-default red-clues">DAFTAR SEKARANG!</a>
 			</div>
