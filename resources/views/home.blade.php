@@ -6,14 +6,19 @@
 		<div class="col-md-8">
 			<h1><strong class="red-clues">LATIHAN</strong> DAN <br> <strong class="blue-clues">BUAT SOAL</strong> <br>DENGAN CARA BARU!</h1>
 			<p>CLUES dibuat untuk memudahkan kamu dalam membuat soal dan latihan, dengan tampilan yang bersih, dan dibuat sesimpel mungkin agar kamu tidak bingung lagi mencari referensi soal atau membuat soal.</p>
+			<div class="center-on-small-only">
+				<a href="{{ url('register') }}" class="btn btn-default red-clues">DAFTAR SEKARANG!</a>
+			</div>
 		</div>
+		{{-- <div class="col-md-4">
+			<img src="{{ asset('img/home-ilus.png') }}" class="responsive-img" alt="">
+		</div> --}}
 		<div class="col-md-4">
 			<div class="center hide-on-large-only">
 				<div class="divider"></div>
-				<br><br>
-				<a href="{{ url('register') }}" class="btn btn-default red-clues">DAFTAR SEKARANG!</a>
+				<img style="margin-right: -42px;" src="{{ asset('img/home-ilus.png') }}" class="responsive-img" alt="">
 			</div>
-			<div class="card hide-on-med-and-down">
+			{{-- <div class="card hide-on-med-and-down">
 				<form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
 					{{ csrf_field() }}
 					<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -53,12 +58,19 @@
 				<div style="font-size: 10px;">
 					Dengan mengklik "Daftar Sekarang", Anda menerima <a href="syaratketentuan">Syarat dan Ketentuan</a> clues.id
 				</div>
-			</div>
+			</div> --}}
 		</div>
+		<img src="{{ asset('img/home-ilus.png') }}" class="responsive-img home-ilus hide-on-med-and-down" alt="">
 	</div>
 </div>
 
 <style>
+	.home-ilus{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 485px;
+	}
 	.card{
 		border: 2px solid #e5e5e5;
 		border-radius: 2px;
