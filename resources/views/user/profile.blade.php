@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-
 	<div class="profile-container hide-on-small-only">
 		<div class="right">
 			{{-- <h5 class="desc stat">{{Auth::user()->status}}</h5> --}}
