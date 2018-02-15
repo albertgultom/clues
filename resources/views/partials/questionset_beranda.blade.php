@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ url('css/modal-clues.css') }}">
 <script src="{{ asset('js/modal-clues.js') }}"></script>
 
+{{-- @if ($postedquestion->count() > 0)
 <div class="section" data-nextpage="{{$postedquestion->nextPageUrl() != null ? $postedquestion->nextPageUrl() : 'null'}}">
 	@foreach ($postedquestion as $a)
 	<div class="">
@@ -28,7 +29,6 @@
 			</div>
 			@endif
 			<div class="divider" style="margin: 50px 0 15px 0;"></div>
-			{{-- <h2 class="{{$sign}}"><strong>{{$sign}}</strong></h2> --}}
 			<h4 class="judulsoal" style="margin: 10px 0;"><strong>{{$a->name}}</strong></h4>
 			<p><span data-toggle="tooltip" data-placement="bottom" title="Tag" class="glyphicon glyphicon-tag"></span> : {{$a->study_name}}</p>
 			<p><span data-toggle="tooltip" data-placement="bottom" title="Waktu" class="glyphicon glyphicon-hourglass"></span> : {{$a->time}} Menit</p>
@@ -63,30 +63,31 @@
 	</div>
 	@endforeach
 </div>
+@endif --}}
 
 <style>
 
-	.section .pin .right p{
-		margin: 0;
-	}
-	.headerpin .avatar-pin,
-	.headerpin .username-pin{
-		display: inline-block;
+.section .pin .right p{
+	margin: 0;
+}
+.headerpin .avatar-pin,
+.headerpin .username-pin{
+	display: inline-block;
 
-	}
-	.headerpin .username-pin{
-		position: relative;
-	}
+}
+.headerpin .username-pin{
+	position: relative;
+}
 
-	.headerpin .avatar-pin{
-		margin: 0 10px 0 0;
-		height: 34px;
-		width: 34px;
-		overflow: hidden;
-		border: 1px solid #e6e6e6;
-		box-shadow: 0 0 5px rgba(0,0,0,.0975);
-		position: relative;
-	}
+.headerpin .avatar-pin{
+	margin: 0 10px 0 0;
+	height: 34px;
+	width: 34px;
+	overflow: hidden;
+	border: 1px solid #e6e6e6;
+	box-shadow: 0 0 5px rgba(0,0,0,.0975);
+	position: relative;
+}
 
 
 	/*.section {
@@ -99,26 +100,26 @@
 		column-count: 3;
 		column-gap: 25px;
 		column-fill: auto;
-	}*/
+		}*/
 
-	.section .pin {
-		width: 100%;
-		margin: 0 2px 15px;
-		background: white;
-		display: inline-block;
-		border: 1px solid rgba(0,0,0,.15);
-		border-radius: 4px;
-		-webkit-column-break-inside: avoid;
-		-moz-column-break-inside: avoid;
-		column-break-inside: avoid;
-		padding: 13px;
-		opacity: 1;
+		.section .pin {
+			width: 100%;
+			margin: 0 2px 15px;
+			background: white;
+			display: inline-block;
+			border: 1px solid rgba(0,0,0,.15);
+			border-radius: 4px;
+			-webkit-column-break-inside: avoid;
+			-moz-column-break-inside: avoid;
+			column-break-inside: avoid;
+			padding: 13px;
+			opacity: 1;
 
-		-webkit-transition: all .2s ease;
-		-moz-transition: all .2s ease;
-		-o-transition: all .2s ease;
-		transition: all .2s ease;
-	}
+			-webkit-transition: all .2s ease;
+			-moz-transition: all .2s ease;
+			-o-transition: all .2s ease;
+			transition: all .2s ease;
+		}
 
 	/*.pin:hover{
 		box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -127,47 +128,47 @@
 		-o-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
 
-	}*/
-	.pin .act{
-		display: none;
-		margin-right: 7px;
-		z-index: 10;
-		background-color: #fff;
-		color: #dd7a78;
-		float: left;
-		padding-right: 5px;
-	}
+		}*/
+		.pin .act{
+			display: none;
+			margin-right: 7px;
+			z-index: 10;
+			background-color: #fff;
+			color: #dd7a78;
+			float: left;
+			padding-right: 5px;
+		}
 
-	.pin img {
-		width: 100%;
-		border-bottom: 1px solid #ccc;
-		padding-bottom: 15px;
-		margin-bottom: 5px;
-	}
+		.pin img {
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 15px;
+			margin-bottom: 5px;
+		}
 
-	.pin .judulsoal:hover{
-		cursor: pointer;
-		z-index: 11;
-	}
+		.pin .judulsoal:hover{
+			cursor: pointer;
+			z-index: 11;
+		}
 
 
-</style>
-<script>
-	$(document).ready(function(){
-		$('[data-toggle="tooltip"]').tooltip();
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
 
-		$('.pin').hover(function() {
-			$(this).find('.act').css('display', 'block');
-		}, function() {
-			$(this).find('.act').css('display', 'none');
-		});
+			$('.pin').hover(function() {
+				$(this).find('.act').css('display', 'block');
+			}, function() {
+				$(this).find('.act').css('display', 'none');
+			});
 
-		$('.pin .judulsoal').click(function(e) {
-			if (e.target.className != 'glyphicon glyphicon-pencil act') {
-				var target = $(this).parents('.pin').data('url');
-				window.location.href = target;
-			}
-		});
+			$('.pin .judulsoal').click(function(e) {
+				if (e.target.className != 'glyphicon glyphicon-pencil act') {
+					var target = $(this).parents('.pin').data('url');
+					window.location.href = target;
+				}
+			});
 
-	})
-</script>
+		})
+	</script>

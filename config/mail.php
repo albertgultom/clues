@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-    'address' => env('MAIL_FROM_ADDRESS', 'ibnu.clues@gmail.com'),
-    'name' => env('MAIL_FROM_NAME', 'CLUES'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ibnu.clues@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'CLUES'),
     ],
 
     /*
@@ -113,11 +113,11 @@ return [
     */
 
     'markdown' => [
-    'theme' => 'default',
+        'theme' => 'default',
 
-    'paths' => [
-    resource_path('views/vendor/mail'),
-    ],
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
     ],
 
-    ];
+];
