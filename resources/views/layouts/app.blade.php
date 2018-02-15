@@ -7,15 +7,11 @@
     <link rel="icon" type="image/png" href="{{ asset('img/clues-logo.png') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name') }} - Aplikasi membuat soal dan latihan dengan mudah</title>
     <meta name="author" content="Clues">
     <meta name="description" content="Clues dibuat untuk memudahkan kamu membuat soal dan latihan dengan cara baru">
     
 
-    
-
-    
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/themes/beagle.min.css') }}">
@@ -67,17 +63,11 @@
         <div class="bar"></div>
     </div>
     @include ('elements.header')
-   {{--  @foreach ($notif as $element)
-    {{$element->id}}
-    @endforeach --}}
-    {{-- <h1>{{$id}}</h1> --}}
-
     <div class="bodyy">
         @yield('content')
     </div>
 
     @include ('elements.footer')
-
 
     <!-- The Modal -->
     <div id="modal-clues" class="modal-clues">
@@ -114,66 +104,68 @@
 </body>
 
 </html>
+
+
 {{-- loader css --}}
 <style>
-    /* linear loading */
-    .bar-container{
-        visibility: hidden;
-        position: fixed;
-        top: 0;
-        height: 5px;
-        width: 100%;
-        background-color: #bdbdbd;
-        z-index: 100;
-    }
+/* linear loading */
+.bar-container{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    height: 5px;
+    width: 100%;
+    background-color: #bdbdbd;
+    z-index: 100;
+}
 
-    .bar{
-        content: "";
-        display: inline;
-        position: absolute;
-        height: 100%;
-        width: 0;
-        right: 0;
-    }
+.bar{
+    content: "";
+    display: inline;
+    position: absolute;
+    height: 100%;
+    width: 0;
+    right: 0;
+}
 
-    .bar:nth-child(1) {
-        background-color: #dd7a78;
-        animation: linear_loader 3s linear 1s infinite;
-    }
+.bar:nth-child(1) {
+    background-color: #dd7a78;
+    animation: linear_loader 3s linear 1s infinite;
+}
 
-    .bar:nth-child(2) {
-        background-color: #0E5C9A;
-        animation: linear_loader 3s linear 2s infinite;
-    }
+.bar:nth-child(2) {
+    background-color: #0E5C9A;
+    animation: linear_loader 3s linear 2s infinite;
+}
 
-    .bar:nth-child(3) {
-        background-color: #555555;
-        animation: linear_loader 3s linear 3s infinite;
-    }
+.bar:nth-child(3) {
+    background-color: #555555;
+    animation: linear_loader 3s linear 3s infinite;
+}
 
-    @keyframes linear_loader {
-        0% {
-            right: 100%; 
-            width: 10%;
-        }
-        30% {
-            right: 0%; 
-            width: 40%;
-        }
-        50% {
-            right: 0%; 
-            width: 0%;
-        }
-        80% {
-            right: 0%; 
-            width: 0%;
-        }
-        100% {
-            right: 0%; 
-            width: 0%;
-        }
+@keyframes linear_loader {
+    0% {
+        right: 100%; 
+        width: 10%;
     }
-    /* end linear loading */
+    30% {
+        right: 0%; 
+        width: 40%;
+    }
+    50% {
+        right: 0%; 
+        width: 0%;
+    }
+    80% {
+        right: 0%; 
+        width: 0%;
+    }
+    100% {
+        right: 0%; 
+        width: 0%;
+    }
+}
+/* end linear loading */
 
 </style>
 <script>$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });</script>

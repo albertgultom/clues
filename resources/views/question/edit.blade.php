@@ -86,74 +86,73 @@
 	</div>
 </div>
 <style>
-	.btn-action{
-		margin-top: 20px;
-	}
-	.editor-container:focus,
-	.editor-option:focus,
-	.editor-penjelasan:focus{
-		outline: none;
-	}
-	.header-soal{
-		margin-bottom: 20px;
-		padding-bottom: 7px;
-		/*border-bottom: 1px solid #F2F2F2;*/
-		border-width: 90%;
-	}
-	.judul-soal{
-		margin-bottom: 10px;
-	}
-	.soal-container .no-soal{
-		position: absolute;
-	}
-	.soal-container .editor-container,
-	.soal-container .editor-option,
-	.soal-container .editor-penjelasan,
-	.soal-container .option{
-		padding-left: 25px;
-		padding-bottom: 5px;
-	}
-	.soal-container .editor-container p,
-	.soal-container .editor-penjelasan p,
-	.soal-container .editor-option p{
-		color: #444444;
-		margin-bottom: 0;
-	}
-	.soal-container .no-soal{
-		margin-right: 8px;
-	}
-	.soal span.close{
-		position: absolute;
-		left: 60px;
-		margin-top: -6px;
-		z-index: 89;
-	}
-	.soal:hover + .soal span.close{
-		pcolor: black;
-		text-decoration: none;
-		cursor: pointer;
-	}
-	.medium-editor-placeholder:after {
-		cursor: text;
-	}
+.btn-action{
+	margin-top: 20px;
+}
+.editor-container:focus,
+.editor-option:focus,
+.editor-penjelasan:focus{
+	outline: none;
+}
+.header-soal{
+	margin-bottom: 20px;
+	padding-bottom: 7px;
+	border-width: 90%;
+}
+.judul-soal{
+	margin-bottom: 10px;
+}
+.soal-container .no-soal{
+	position: absolute;
+}
+.soal-container .editor-container,
+.soal-container .editor-option,
+.soal-container .editor-penjelasan,
+.soal-container .option{
+	padding-left: 25px;
+	padding-bottom: 5px;
+}
+.soal-container .editor-container p,
+.soal-container .editor-penjelasan p,
+.soal-container .editor-option p{
+	color: #444444;
+	margin-bottom: 0;
+}
+.soal-container .no-soal{
+	margin-right: 8px;
+}
+.soal span.close{
+	position: absolute;
+	left: 60px;
+	margin-top: -6px;
+	z-index: 89;
+}
+.soal:hover + .soal span.close{
+	pcolor: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+.medium-editor-placeholder:after {
+	cursor: text;
+}
 
-	.content-saved{
-		position: fixed;
-		/*display: none;*/
-		z-index: -99;
-		opacity: 0;
-		top: 20px;
-		left: 10px;
-		right: 10px;
-		text-align: center
-		transition: all 0.3s ease-in-out;
-	}
+.content-saved{
+	position: fixed;
+	/*display: none;*/
+	z-index: -99;
+	opacity: 0;
+	top: 20px;
+	left: 10px;
+	right: 10px;
+	text-align: center
+	transition: all 0.3s ease-in-out;
+}
 
-	.content-saved.show{
-		z-index: 10;
-		opacity: 1;
-	}
-	
+.content-saved.show{
+	z-index: 10;
+	opacity: 1;
+}
+
 </style>
 <script>
 	$(document).ready(function(){
@@ -300,8 +299,6 @@
 		reordernomor();
 		save();
 		save2();
-
-
 		function save(){
 			$('.editor-container, .editor-option, .editor-penjelasan').focusout(function(){
 				

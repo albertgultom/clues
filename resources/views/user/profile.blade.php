@@ -4,8 +4,6 @@
 <div class="container">
 	<div class="profile-container hide-on-small-only">
 		<div class="right">
-			{{-- <h5 class="desc stat">{{Auth::user()->status}}</h5> --}}
-			{{-- <h5 class="desc school">{!! Auth::user()->school_id == '' ? '<span>Tambahkan Sekolah</span>' : Auth::user()->school_id !!}</h5> --}}
 			<a href="{{ url('settings') }}">
 				<span class="glyphicon glyphicon-pencil edit" data-toggle="tooltip" data-placement="bottom" title="Edit/Pengaturan"></span>
 			</a>
@@ -57,7 +55,6 @@
 			<li><button class="btn btn-default active" data-content="postedquestion">Kiriman</button></li>
 			<li><button class="btn btn-default" data-content="archivequestion">Arsip</button></li>
 		</ul>
-
 		<div class="nav-tab-content">
 			
 		</div>
@@ -67,99 +64,99 @@
 
 <style>
 
-	/*mobile*/
-	.mobile .profile-picture{
-		margin: 0 auto;
-		height: 70px;
-		width: 70px;
-	}
+/*mobile*/
+.mobile .profile-picture{
+	margin: 0 auto;
+	height: 70px;
+	width: 70px;
+}
 
-	.nav-clues ul{
-		padding: 10px 0;
-		border-bottom: 1px solid #F2F2F2;
-		margin-bottom: 20px;
-	}
-	.nav-clues ul li{
-		display: inline-block;
-		list-style: none;
-	}
-	.nav-clues li button.btn.active:focus{
-		outline: none;
-	}
-	.nav-tab-content {
-		max-width: 100%;
-		width: 100%;
-		margin: 24px 0;
-	}
+.nav-clues ul{
+	padding: 10px 0;
+	border-bottom: 1px solid #F2F2F2;
+	margin-bottom: 20px;
+}
+.nav-clues ul li{
+	display: inline-block;
+	list-style: none;
+}
+.nav-clues li button.btn.active:focus{
+	outline: none;
+}
+.nav-tab-content {
+	max-width: 100%;
+	width: 100%;
+	margin: 24px 0;
+}
 
-	/*profile*/
-	.profile-container{
-		min-height: 200px;
-	}
-	.profile-container .foll{
-		display: inline-block;
-		margin: 10px 7px;
-		color: #444;
-	}
-	.profile-container .foll span{
-		color: #333;
-		font-family: 'Oxygen-Bold', sans-serif;
-	}
-	.profile-container .edit ,
-	.profile-container .logout {
-		background-color: #aaa;
-		color: #fff;
-		float: right;
-		border-radius: 50%;
-		height: 30px;
-		width: 30px;
-		padding: 7px;
-		font-size: 14px;
-		font-weight: bold;
-		border: 1px solid #aaa;
-	}
-	.profile-container .edit:hover,
-	.profile-container .edit:focus,
-	.profile-container .logout:hover,
-	.profile-container .logout:focus {
-		color: #aaa;
-		text-decoration: none;
-		cursor: pointer;
-		background-color: #fff;
-		border: 1px solid #aaa;
-	}
-	.profile-container .name{
-		font-family: 'Oxygen-Bold', sans-serif;
-	}
-	.profile-container .desc{
-		margin: 0;
-		padding: 6px 12px;
-		display: inline-block;
-		border-radius: 20px;
-		background-color: #f9f9f9;
-	}
-	.profile-container .desc.stat{
-		color: #73a5ce;
-		border: 1px solid #73a5ce;
-	}
-	.profile-container .desc.school{
-		color: #dd7a78;
-		border: 1px solid #dd7a78;
-	}
-	.profile-container span{
-		color: #E7E7E7;
-	}
-	.profile-container .description{
-		margin-left: 180px;
-	}
-	.profile-picture{
-		overflow: hidden;
-		height: 150px;
-		width: 150px;
-	}
-	.bio{
-		max-width: 60%;
-	}
+/*profile*/
+.profile-container{
+	min-height: 200px;
+}
+.profile-container .foll{
+	display: inline-block;
+	margin: 10px 7px;
+	color: #444;
+}
+.profile-container .foll span{
+	color: #333;
+	font-family: 'Oxygen-Bold', sans-serif;
+}
+.profile-container .edit ,
+.profile-container .logout {
+	background-color: #aaa;
+	color: #fff;
+	float: right;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	padding: 7px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid #aaa;
+}
+.profile-container .edit:hover,
+.profile-container .edit:focus,
+.profile-container .logout:hover,
+.profile-container .logout:focus {
+	color: #aaa;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #aaa;
+}
+.profile-container .name{
+	font-family: 'Oxygen-Bold', sans-serif;
+}
+.profile-container .desc{
+	margin: 0;
+	padding: 6px 12px;
+	display: inline-block;
+	border-radius: 20px;
+	background-color: #f9f9f9;
+}
+.profile-container .desc.stat{
+	color: #73a5ce;
+	border: 1px solid #73a5ce;
+}
+.profile-container .desc.school{
+	color: #dd7a78;
+	border: 1px solid #dd7a78;
+}
+.profile-container span{
+	color: #E7E7E7;
+}
+.profile-container .description{
+	margin-left: 180px;
+}
+.profile-picture{
+	overflow: hidden;
+	height: 150px;
+	width: 150px;
+}
+.bio{
+	max-width: 60%;
+}
 </style>
 <script>
 	$(document).ready(function(){

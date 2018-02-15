@@ -54,7 +54,7 @@ class RegisterController extends Controller
             // 'username' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            ]);
+        ]);
     }
 
     /**
@@ -68,13 +68,14 @@ class RegisterController extends Controller
         preg_match_all ("/^(.+)@[^@]+$/", $data['email'], $email);
 
         Mail::send('mail.welcome', array('firstname' => $data['name']), function($message) use ($data) {
-         $message->to($data['email'], $data['name'])->subject('Selamat datang di Clues!');
-     });
+            $message->to($data['email'], $data['name'])->subject('Selamat datang di Clues!');
+        });
+        // dd($data);
         return User::create([
             'name' => $data['name'],
             'username' => $email[1][0],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            ]);
+        ]);
     }
 }

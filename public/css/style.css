@@ -144,89 +144,79 @@ a span.glyphicon{
   		text-align: center;
   	}
   }
+  .btn,
+  .btn:hover{
+   border-radius: 25px;
+ }
+ .btn.blue, a.blue,
+ .btn.blue:hover, a.blue:hover{
+   border-color: #0E5C9A;
+   color: #0E5C9A;
+ }
+ .btn.red, a.red,
+ .btn.red:hover, a.red:hover{
+   border-color: #dd7a78;
+   color: #dd7a78;
+ }
+ .btn:focus{
+   outline: none;
+   background-color: transparent;
+ }
 
-  /*.valign-wrapper {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    }*/
+ .btn .glyphicon{
+   top: 2px;
+ }
 
-    .btn,
-    .btn:hover{
-     border-radius: 25px;
-   }
-   .btn.blue, a.blue,
-   .btn.blue:hover, a.blue:hover{
-     border-color: #0E5C9A;
-     color: #0E5C9A;
-   }
-   .btn.red, a.red,
-   .btn.red:hover, a.red:hover{
-     border-color: #dd7a78;
-     color: #dd7a78;
-   }
-   .btn:focus{
-     outline: none;
-     background-color: transparent;
-   }
-
-   .btn .glyphicon{
-     top: 2px;
-   }
-
-   /*custom css tabs*/
-   .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-     color: #dd7a78;
-   }
+ /*custom css tabs*/
+ .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+   color: #dd7a78;
+ }
 
 
-   input.form-control:focus,
-   #biograph:focus{
-     border: 1px solid #58595B;
-     outline: none;
-     box-shadow: none;
-   }
+ input.form-control:focus,
+ #biograph:focus{
+   border: 1px solid #58595B;
+   outline: none;
+   box-shadow: none;
+ }
 
-   .alert{
-     background-color: #fff;
-   }
+ .alert{
+   background-color: #fff;
+ }
 
 
-   .input-desc{
-     font-size: 11px;
-   }
+ .input-desc{
+   font-size: 11px;
+ }
 
-   .card{
-     /*border: 2px solid #e5e5e5;*/
-     border-radius: 2px;
-     padding: 15px 10px 20px;
-     transition: all .2s ease;
-   }
-   .card-heading{
-     font-size: 23px;
-   }
+ .card{
+   /*border: 2px solid #e5e5e5;*/
+   border-radius: 2px;
+   padding: 15px 10px 20px;
+   transition: all .2s ease;
+ }
+ .card-heading{
+   font-size: 23px;
+ }
 
-   ul li{
-     list-style: none;
-   }
+ ul li{
+   list-style: none;
+ }
 
-   .line{
-    border-bottom: 1px solid #dee0df;
-    color: #f4645f;
-    text-align: center;
-    font-size: 13px;
-    margin: 0 0 15px 0;
-    position: relative;
-  }
-  .line span{
-    top: 9px;
-    background: #fff;
-    padding: 0 20px;
-    position: relative;
-  }
+ .line{
+  border-bottom: 1px solid #dee0df;
+  color: #f4645f;
+  text-align: center;
+  font-size: 13px;
+  margin: 0 0 15px 0;
+  position: relative;
+}
+.line span{
+  top: 9px;
+  background: #fff;
+  padding: 0 20px;
+  position: relative;
+}
 
 
 

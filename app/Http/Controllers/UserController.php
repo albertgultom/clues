@@ -43,8 +43,8 @@ class UserController extends Controller
 			$following = Following::where('user_id', Auth::user()->id)->where('following_id', $id)->count();
 			if ($request->page) {
 				return [
-				'post' => view('partials.questionset2')->with(compact('postedquestion'))->render(),
-				'requestpage' => $postedquestion->nextPageUrl(),
+					'post' => view('partials.questionset2')->with(compact('postedquestion'))->render(),
+					'requestpage' => $postedquestion->nextPageUrl(),
 				];
 			}
 			return view('user.profile_other', compact('user', 'countpost', 'archivequestionsets', 'questionsets', 'postedquestion', 'following'));
@@ -69,22 +69,22 @@ class UserController extends Controller
 			Following::create([
 				'following_id' => $request->following_id,
 				'user_id' => Auth::user()->id
-				]);
+			]);
 			Notification::create([
 				'user_id' => $request->following_id,
 				'notif_by' => Auth::user()->id,
 				'type' => 'follow'
-				]);
+			]);
 		}
 	}
 
 	function update(Request $request){
 
 		$validate = $this->validate($request, [
-			'username' => 'required|max:20|unique:users,username,'.Auth::user()->id,
-			'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id,
+			'username' => 'required|max:20|unique:users,username,'.Auth::user()->username,
+			'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->email,
 			'avatar' => 'image|max:1000000'
-			]);
+		]);
 
 		if ($request->avatar != '') {
 			if ($request->avatar->isValid()) {
@@ -102,7 +102,7 @@ class UserController extends Controller
 						'username' => $request->username,
 						'email' => $request->email,
 						'biography' => $request->biography,
-						]);
+					]);
 				}
 			}
 		}else{
@@ -111,7 +111,7 @@ class UserController extends Controller
 				'username' => $request->username,
 				'email' => $request->email,
 				'biography' => $request->biography,
-				]);
+			]);
 		}
 		if ($request->registerprofile != '') {
 			Session::flash('pesan', 'Terima kasih telah mendaftar!');
@@ -130,17 +130,17 @@ class UserController extends Controller
 	function changepassword(Request $request){
 		$this->validate($request, [
 			'password' => 'required|min:6|confirmed'
-			]);
+		]);
 		User::find(Auth::user()->id)->update([
 			'password' => Hash::make($request->password),
-			]);
+		]);
 		return redirect('settings');
 	}
 
 	function readnotif($id){
 		Notification::find($id)->update([
 			'read' => '0'
-			]);
+		]);
 		return $id;
 	}
 
