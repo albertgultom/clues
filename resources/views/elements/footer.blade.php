@@ -2,7 +2,7 @@
 	<div class="description-footer row">
 		<div class="col-md-5">
 			<div class="center-on-small-only">
-				Copyright © Clues 2017
+				Copyright © Clues 2017 By <a href="https://intropis.com">Intropis</a>
 			</div>
 		</div>
 		<div class="col-md-5 center">
@@ -22,31 +22,31 @@
 </div>
 
 <style>
-	.footer .fa{
-		font-size: 20px;
-	}
-	.footer{
-		border-top: 1px solid #F2F2F2;
-		width: 100%;
-		padding: 18px;
-		color: #B3B3B3;
-		font-size: 13px;
-	}
+.footer .fa{
+	font-size: 20px;
+}
+.footer{
+	border-top: 1px solid #F2F2F2;
+	width: 100%;
+	padding: 18px;
+	color: #B3B3B3;
+	font-size: 13px;
+}
+.footer ul {
+	list-style: none;
+	padding: 0;
+}
+.footer ul li{
+	display: inline-block;
+	padding: 0 20px;
+}
+@media screen and (max-width: 800px) {
 	.footer ul {
-		list-style: none;
-		padding: 0;
+		margin-top: 10px;
 	}
 	.footer ul li{
 		display: inline-block;
-		padding: 0 20px;
+		padding: 0 10px;
 	}
-	@media screen and (max-width: 800px) {
-		.footer ul {
-			margin-top: 10px;
-		}
-		.footer ul li{
-			display: inline-block;
-			padding: 0 10px;
-		}
-	}
+}
 </style>

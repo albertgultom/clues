@@ -15,47 +15,6 @@
 				<div class="divider"></div>
 				<img style="margin-right: -42px;" src="{{ asset('img/home-ilus.png') }}" class="responsive-img" alt="">
 			</div>
-			{{-- <div class="card hide-on-med-and-down">
-				<form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-					{{ csrf_field() }}
-					<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-						<label for="name">Nama Lengkap</label>
-						<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
-						@if ($errors->has('name'))
-						<span class="help-block">
-							<strong>{{ $errors->first('name') }}</strong>
-						</span>
-						@endif
-					</div>
-					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-						<label for="email">E-Mail</label>
-						<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-						@if ($errors->has('email'))
-						<strong>{{ $errors->first('email') }}</strong>
-						@endif
-					</div>
-					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-						<label for="password">Password</label>
-						<input id="password" type="password" class="form-control" name="password" required>
-						<label class="input-desc">Gunakan kombinasi huruf dan angka, min 6 karakter</label>
-						@if ($errors->has('password'))
-						<strong>{{ $errors->first('password') }}</strong>
-						@endif
-					</div>
-					<div class="form-group">
-						<label for="password-confirm" >Konfirmasi Password</label>
-						<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-					</div>
-					<div class="form-group center">
-						<button type="submit" class="btn btn-default red">
-							Daftar Sekarang
-						</button>
-					</div>
-				</form>
-				<div style="font-size: 10px;">
-					Dengan mengklik "Daftar Sekarang", Anda menerima <a href="syaratketentuan">Syarat dan Ketentuan</a> clues.id
-				</div>
-			</div> --}}
 		</div>
 		<img src="{{ asset('img/home-ilus.png') }}" class="responsive-img home-ilus hide-on-med-and-down" alt="">
 	</div>
