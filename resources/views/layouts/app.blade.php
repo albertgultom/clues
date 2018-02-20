@@ -155,15 +155,7 @@
 
 </style>
 <script>$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });</script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103217098-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-103217098-2');
-</script>
 
 
 
