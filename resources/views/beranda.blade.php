@@ -34,56 +34,26 @@
 			@include('partials.questionset_beranda')
 		</div>
 		@endif
-		{{-- <div class="col-md-4">
-			<div class="text-right">
-				<h4>Sugesti <span class="red-clues">User</span></h4>
-			</div>
-			<div class="divider"></div>
-
-			@foreach ($users as $a)
-			
-			@php($count = 0)
-			@foreach (Auth::user()->followings as $b)
-			@if ($b->following_id == $a->id)
-			@php($count = 1)
-			@endif
-			@endforeach
-			@if (Auth::user()->id == $a->id)
-			@php($count = 1)
-			@endif
-
-			@if ($count == 0)
-			<div class="card-user">
-				
-				<div class="img-content circle left">
-					<img src="{{ $a->avatar == '' ? asset('images/default_pic.png') : asset('storage/avatar/'.$a->avatar.'') }}" class="responsive-img" alt="">
-				</div>
-				<a class="username red-clues" href="{{ url('user/'.$a->username) }}">{{$a->username}}</a>
-				<button data-id="{{$a->id}}" class="btn btn-default blue-clues right following">Follow</button>
-			</div>
-			@endif
-			@endforeach
-		</div> --}}
 	</div>
 
 </div>
 <style>
-	.card-user{
-		padding: 13px 12px 23px;
-		border: 1px solid rgba(0,0,0,.15);
-		border-radius: 4px;
-		margin-bottom: 13px;
-	}
-	.card-user .username{
-		display: inline-block;
-	}
-	.img-content{
-		margin-right: 15px;
-		display: inline-block;
-		overflow: hidden;
-		height: 40px;
-		width: 40px;
-	}
+.card-user{
+	padding: 13px 12px 23px;
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 4px;
+	margin-bottom: 13px;
+}
+.card-user .username{
+	display: inline-block;
+}
+.img-content{
+	margin-right: 15px;
+	display: inline-block;
+	overflow: hidden;
+	height: 40px;
+	width: 40px;
+}
 </style>
 <script>
 	$(document).ready(function(){

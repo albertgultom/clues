@@ -14,7 +14,7 @@
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('css/themes/beagle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/themes/beagle.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/modal-clues.css') }}">
     <link rel="stylesheet" href="{{ url('css/header-clues.css') }}">
     <link rel="stylesheet" href="{{ url('css/medium-editor.min.css') }}">
@@ -92,7 +92,6 @@
 
 </html>
 
-
 {{-- loader css --}}
 <style>
 /* linear loading */
@@ -156,5 +155,15 @@
 
 </style>
 <script>$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103217098-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-103217098-2');
+</script>
+
 
 

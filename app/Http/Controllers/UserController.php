@@ -81,10 +81,13 @@ class UserController extends Controller
 	function update(Request $request){
 
 		$validate = $this->validate($request, [
-			'username' => 'required|max:20|unique:users,username,'.Auth::user()->username,
-			'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->email,
+			'username' => 'required|max:20|unique:users,username,'.Auth::user()->id,
+			'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id,
 			'avatar' => 'image|max:1000000'
 		]);
+
+		$current_username = Auth::user()->username;
+		$current_email = Auth::user()->email;
 
 		if ($request->avatar != '') {
 			if ($request->avatar->isValid()) {
