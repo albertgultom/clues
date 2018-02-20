@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'username' => $email[1][0],
             'email' => $data['email'],
+            'api_token' => bcrypt($data['email']),
             'password' => bcrypt($data['password']),
         ]);
     }
